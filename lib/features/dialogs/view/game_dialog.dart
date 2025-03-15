@@ -23,7 +23,8 @@ class GameDialog extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: maxWidth),
         child: Material(
-          color: dialogTheme.backgroundColor ?? theme.dialogTheme.backgroundColor,
+          color:
+              dialogTheme.backgroundColor ?? theme.dialogTheme.backgroundColor,
           elevation: 0.0,
           shadowColor: dialogTheme.shadowColor,
           surfaceTintColor: dialogTheme.surfaceTintColor,
