@@ -33,6 +33,16 @@ You win the game when you've flagged every mine in the minefield. Be careful not
 - Zoom out
 - Share games
 
+## Screenshots
+
+
+
+| Gameplay | Themes | Skins | Stats | 
+| --- | --- | --- | --- |
+| <img src="https://github.com/user-attachments/assets/635151eb-cca6-47a4-8ba2-4b57f49686b0" width="250px"/> | <img src="https://github.com/user-attachments/assets/a582b4c3-f37d-4d8f-9c1a-ec253f2f2222" width="250px"/> | <img src="https://github.com/user-attachments/assets/62f0e525-5eff-453c-a45f-54b8d801bd76" width="250px" /> | <img src="https://github.com/user-attachments/assets/85ad7783-2a84-4e21-81af-810afff4157c" width="250px" /> | 
+
+
+
 ## Build
 
 ### Internationalization
