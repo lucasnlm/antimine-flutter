@@ -17,5 +17,5 @@ class ControlDivider extends StatelessWidget {
     );
   }
 
-  static final _controlDividerAlpha = (255.0 * 0.25) as int;
+  static final _controlDividerAlpha = (255.0 * 0.25).toInt();
 }

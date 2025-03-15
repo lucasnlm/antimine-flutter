@@ -68,14 +68,14 @@ class HoverComponent extends ShapeComponent
       _expansion = max(_expansion - _expansionSpeed * dt, 0.0);
       final color = theme.cover
           .darken(0.1)
-          .withAlpha((_opacity * 255.0) as int);
+          .withAlpha((_opacity * _maxAlpha).toInt());
       paint.colorFilter = ColorFilter.mode(color, BlendMode.srcIn);
     } else {
       _opacity = min(_opacity + _expansionSpeed * dt, _maxOpacity);
       _expansion = min(_expansion + _expansionSpeed * dt, _maxExpansion);
       final color = theme.cover
           .darken(0.1)
-          .withAlpha((_opacity * 255.0) as int);
+          .withAlpha((_opacity * _maxAlpha).toInt());
       paint.colorFilter = ColorFilter.mode(color, BlendMode.srcIn);
     }
   }
@@ -104,6 +104,7 @@ class HoverComponent extends ShapeComponent
     );
   }
 
+  static const _maxAlpha = 255.0;
   static const _spriteSizeExpanded = ComponentConstants.spriteSize * 0.05;
   static const _maxExpansion = 0.5;
   static const _maxOpacity = 0.5;

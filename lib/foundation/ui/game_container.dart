@@ -22,5 +22,5 @@ class GameContainer extends StatelessWidget {
     );
   }
 
-  static final _borderAlphaColor = (255.0 * 0.1) as int;
+  static final _borderAlphaColor = (255.0 * 0.1).toInt();
 }

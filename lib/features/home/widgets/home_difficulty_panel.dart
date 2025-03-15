@@ -109,5 +109,5 @@ class HomeDifficultyPanel extends StatelessWidget {
     );
   }
 
-  static final _surfaceAlphaColor = (255.0 * 0.25) as int;
+  static final _surfaceAlphaColor = (255.0 * 0.25).toInt();
 }

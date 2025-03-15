@@ -62,5 +62,5 @@ class ActionButton extends StatelessWidget {
     );
   }
 
-  static final _buttonAlphaSurface = (0.7 * 255.0) as int;
+  static final _buttonAlphaSurface = (0.7 * 255.0).toInt();
 }

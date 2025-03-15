@@ -73,7 +73,7 @@ class GameParams extends Equatable {
         restart: object[_restartKey] ?? false,
         difficulty:
             object[_difficultyKey] != null
-                ? Difficulty.values[object[_difficultyKey] as int]
+                ? Difficulty.values[object[_difficultyKey].toInt()]
                 : null,
         seed: object[_seedKey],
         saveId: object[_saveIdKey],

@@ -152,6 +152,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
     context.read<HistoryBloc>().load();
   }
 
-  static final _subtitleAlphaColor = (255.0 * 0.5) as int;
-  static final _titleAlphaColor = (255.0 * 0.1) as int;
+  static final _subtitleAlphaColor = (255.0 * 0.5).toInt();
+  static final _titleAlphaColor = (255.0 * 0.1).toInt();
 }

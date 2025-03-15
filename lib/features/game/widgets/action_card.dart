@@ -42,6 +42,6 @@ class ActionCard extends StatelessWidget {
     );
   }
 
-  static final _actionBorderAlpha = (255.0 * 0.1) as int;
-  static final _actionSurfaceAlpha = (255.0 * 0.5) as int;
+  static final _actionBorderAlpha = (255.0 * 0.1).toInt();
+  static final _actionSurfaceAlpha = (255.0 * 0.5).toInt();
 }

@@ -120,5 +120,5 @@ class GameOverDialog extends StatelessWidget {
     );
   }
 
-  static final _titleAlphaColor = (255.0 * 0.7) as int;
+  static final _titleAlphaColor = (255.0 * 0.7).toInt();
 }

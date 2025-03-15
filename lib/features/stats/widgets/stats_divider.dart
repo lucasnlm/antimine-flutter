@@ -17,5 +17,5 @@ class StatsDivider extends StatelessWidget {
     );
   }
 
-  static final _surfaceAlphaColor = (255.0 * 0.1) as int;
+  static final _surfaceAlphaColor = (255.0 * 0.1).toInt();
 }

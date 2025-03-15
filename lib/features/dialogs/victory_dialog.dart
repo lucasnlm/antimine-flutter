@@ -182,7 +182,7 @@ class _VictoryDialogState extends State<VictoryDialog> {
 
   double _degToRad(double deg) => deg * (pi / 180.0);
 
-  static final _titleAlphaColor = (255.0 * 0.7) as int;
+  static final _titleAlphaColor = (255.0 * 0.7).toInt();
   static const _numberOfParticles = 5;
   static const _gravity = 0.1;
   static const _emissionFrequency = 0.05;

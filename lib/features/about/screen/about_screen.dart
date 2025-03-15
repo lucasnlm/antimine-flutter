@@ -107,7 +107,7 @@ class AboutScreen extends StatelessWidget {
     }
   }
 
-  static final _titleAlphaColor = (255.0 * 0.5) as int;
+  static final _titleAlphaColor = (255.0 * 0.5).toInt();
   static const _githubUrl = 'https://github.com/lucasnlm/antimine-android/';
   static const _videoUrl =
       'https://open.spotify.com/artist/5Z1PXKko20wSH0yFr9HtNr';

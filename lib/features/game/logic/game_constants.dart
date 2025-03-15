@@ -16,7 +16,7 @@ class GameConstants {
   static const confettiDuration = Duration(seconds: 3);
   static const hintReward = 5;
   static const initialHintCount = 5;
-  static final revealedOpacity = (0.6 * 255.0) as int;
+  static final revealedOpacity = (0.6 * 255.0).toInt();
   static const dimOpacity = 127;
 
   static const safeAreaEnabled = true;
