@@ -1,6 +1,1 @@
-enum Action {
-  open,
-  switchMark,
-  flag,
-  question,
-}
+enum Action { open, switchMark, flag, question }

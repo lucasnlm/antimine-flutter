@@ -20,11 +20,11 @@ class GamePrimaryColor extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        primary,
-        onPrimary,
-        isDark,
-        isPremium,
-        conflictBg,
-      ];
+    id,
+    primary,
+    onPrimary,
+    isDark,
+    isPremium,
+    conflictBg,
+  ];
 }

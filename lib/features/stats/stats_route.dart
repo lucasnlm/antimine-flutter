@@ -13,19 +13,13 @@ class StatsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<StatsBloc>(
       create: (context) {
-        return StatsBloc(
-          staticsFileManager: context.read(),
-        );
+        return StatsBloc(staticsFileManager: context.read());
       },
       child: const StatsScreen(),
     );
   }
 
-  static Future<T?> open<T extends Object?>(
-    BuildContext context,
-  ) {
-    return context.push(
-      GameRoutes.stats,
-    );
+  static Future<T?> open<T extends Object?>(BuildContext context) {
+    return context.push(GameRoutes.stats);
   }
 }

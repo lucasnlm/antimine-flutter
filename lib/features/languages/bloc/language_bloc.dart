@@ -9,58 +9,43 @@ import '../models/language_item.dart';
 import 'language_state.dart';
 
 class LanguageBloc extends Cubit<LanguageState> {
-  LanguageBloc({
-    required this.settingsManager,
-    required this.globalBloc,
-  }) : super(
-          const LanguageState(loading: true),
-        );
+  LanguageBloc({required this.settingsManager, required this.globalBloc})
+    : super(const LanguageState(loading: true));
 
   final SettingsManager settingsManager;
   final GlobalSettingsBloc globalBloc;
 
   void load() {
     final supported = AppLocaleUtils.supportedLocales.map(
-      (e) => e.countryCode == null
-          ? e.languageCode
-          : '${e.languageCode}_${e.countryCode}',
+      (e) =>
+          e.countryCode == null
+              ? e.languageCode
+              : '${e.languageCode}_${e.countryCode}',
     );
 
-    final languages = _localeMap.entries
-        .where((e) => supported.contains(e.key))
-        .map(getLanguageItem)
-        .toList();
+    final languages =
+        _localeMap.entries
+            .where((e) => supported.contains(e.key))
+            .map(getLanguageItem)
+            .toList();
 
     final locale = Platform.localeName;
     final systemLocale = locale.split('_').firstOrNull ?? locale;
     final selected = settingsManager.cache.locale ?? systemLocale;
 
     emit(
-      state.copyWith(
-        loading: false,
-        languages: languages,
-        selected: selected,
-      ),
+      state.copyWith(loading: false, languages: languages, selected: selected),
     );
   }
 
   void select(String locale) {
     globalBloc.changeLocale(locale);
     settingsManager.setLocale(locale);
-    emit(
-      state.copyWith(
-        selected: locale,
-      ),
-    );
+    emit(state.copyWith(selected: locale));
   }
 
-  static LanguageItem getLanguageItem(
-    MapEntry<String, String> entry,
-  ) {
-    return LanguageItem(
-      name: entry.value,
-      locale: entry.key,
-    );
+  static LanguageItem getLanguageItem(MapEntry<String, String> entry) {
+    return LanguageItem(name: entry.value, locale: entry.key);
   }
 
   static const Map<String, String> _localeMap = {

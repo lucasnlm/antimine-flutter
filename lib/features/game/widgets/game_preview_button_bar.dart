@@ -6,9 +6,7 @@ import '../../../../foundation/ui/spacing.dart';
 import '../../../foundation/i18n/translations.g.dart';
 
 class GamePreviewBottomBar extends StatelessWidget {
-  const GamePreviewBottomBar({
-    super.key,
-  });
+  const GamePreviewBottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {

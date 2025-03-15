@@ -39,19 +39,12 @@ class MinefieldHandler {
     return _areas.any((area) => area.hasMine);
   }
 
-  Future<void> createEmpty(
-    Minefield minefield,
-    bool useForms,
-  ) async {
+  Future<void> createEmpty(Minefield minefield, bool useForms) async {
     _minefield = minefield;
     _areas = await minefieldCreator.createEmpty(_minefield, useForms);
   }
 
-  void loadFromList(
-    Minefield minefield,
-    bool useForms,
-    List<Area> areas,
-  ) {
+  void loadFromList(Minefield minefield, bool useForms, List<Area> areas) {
     _minefield = minefield;
     _areas = minefieldCreator.fromList(_minefield, useForms, areas);
     refreshForms();
@@ -84,17 +77,13 @@ class MinefieldHandler {
     }
   }
 
-  int indexOf(
-    Vector2 position,
-  ) {
+  int indexOf(Vector2 position) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     return _areas.indexFor(_minefield, x, y);
   }
 
-  FirstOpen firstOpenFor(
-    Vector2? position,
-  ) {
+  FirstOpen firstOpenFor(Vector2? position) {
     if (position != null) {
       final x = position.x.toInt();
       final y = position.y.toInt();
@@ -105,24 +94,15 @@ class MinefieldHandler {
     }
   }
 
-  bool openByPosition(
-    Vector2 position, {
-    bool openNeighbors = true,
-  }) {
+  bool openByPosition(Vector2 position, {bool openNeighbors = true}) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
 
-    return openById(
-      id,
-      openNeighbors: openNeighbors,
-    );
+    return openById(id, openNeighbors: openNeighbors);
   }
 
-  bool openById(
-    int id, {
-    bool openNeighbors = true,
-  }) {
+  bool openById(int id, {bool openNeighbors = true}) {
     final target = _areas[id];
     var result = false;
 
@@ -152,28 +132,18 @@ class MinefieldHandler {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
-    return switchOrSetMarkById(
-      id: id,
-      mark: mark,
-    );
+    return switchOrSetMarkById(id: id, mark: mark);
   }
 
-  bool switchOrSetMarkById({
-    required int id,
-    required Mark mark,
-  }) {
+  bool switchOrSetMarkById({required int id, required Mark mark}) {
     final target = _areas[id];
     var result = false;
 
     if (target.covered) {
       if (_areas[id].mark == mark) {
-        _areas[target.id] = target.copyWith(
-          mark: Mark.forcedNone,
-        );
+        _areas[target.id] = target.copyWith(mark: Mark.forcedNone);
       } else {
-        _areas[target.id] = target.copyWith(
-          mark: mark,
-        );
+        _areas[target.id] = target.copyWith(mark: mark);
       }
       result = true;
     }
@@ -188,16 +158,10 @@ class MinefieldHandler {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
-    return switchMarkById(
-      id: id,
-      useQuestionMark: useQuestionMark,
-    );
+    return switchMarkById(id: id, useQuestionMark: useQuestionMark);
   }
 
-  bool switchMarkById({
-    required int id,
-    required bool useQuestionMark,
-  }) {
+  bool switchMarkById({required int id, required bool useQuestionMark}) {
     final target = _areas[id];
     var result = false;
 
@@ -222,9 +186,7 @@ class MinefieldHandler {
           break;
       }
 
-      _areas[target.id] = target.copyWith(
-        mark: nextMark,
-      );
+      _areas[target.id] = target.copyWith(mark: nextMark);
       result = true;
     }
 
@@ -233,17 +195,13 @@ class MinefieldHandler {
 
   void undarkNumbers() {
     for (final area in _areas) {
-      _areas[area.id] = area.copyWith(
-        dimNumber: false,
-      );
+      _areas[area.id] = area.copyWith(dimNumber: false);
     }
   }
 
   void darkFlaggedNeighbors() {
     for (final area in _areas) {
-      _areas[area.id] = area.copyWith(
-        dimNumber: false,
-      );
+      _areas[area.id] = area.copyWith(dimNumber: false);
 
       if (area.minesAround > 0) {
         final neighboursList = area.neighboursList;
@@ -252,60 +210,44 @@ class MinefieldHandler {
         final minesAround = area.minesAround;
 
         if (flaggedAreas == minesAround) {
-          _areas[area.id] = area.copyWith(
-            dimNumber: true,
-          );
+          _areas[area.id] = area.copyWith(dimNumber: true);
         }
       }
     }
   }
 
-  int numberAt(
-    Vector2 position,
-  ) {
+  int numberAt(Vector2 position) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
     return numberAtById(id);
   }
 
-  int numberAtById(
-    int id,
-  ) {
+  int numberAtById(int id) {
     final target = _areas[id];
     return (target.covered || target.hasMine) ? 0 : target.minesAround;
   }
 
-  bool hasMarkAt(
-    Vector2 position,
-  ) {
+  bool hasMarkAt(Vector2 position) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
     return hasMarkById(id);
   }
 
-  bool hasMarkById(
-    int id,
-  ) {
+  bool hasMarkById(int id) {
     final target = _areas[id];
     return target.mark.isNotNone;
   }
 
-  bool actionOnNeighbors(
-    Vector2 position,
-    bool canFlag,
-  ) {
+  bool actionOnNeighbors(Vector2 position, bool canFlag) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
     return actionOnNeighborsById(id, canFlag);
   }
 
-  bool actionOnNeighborsById(
-    int id,
-    bool canFlag,
-  ) {
+  bool actionOnNeighborsById(int id, bool canFlag) {
     final target = _areas[id];
     var result = false;
 
@@ -313,9 +255,12 @@ class MinefieldHandler {
       final neighboursList = target.neighboursList;
       final neighbours = neighboursList.map((e) => _areas[e]);
       final solvedAreas = neighbours.where((e) => e.isSolved).length;
-      final coveredAreas = neighbours
-          .where((e) => e.covered || (e.hasMine && !e.covered && e.ignoreError))
-          .length;
+      final coveredAreas =
+          neighbours
+              .where(
+                (e) => e.covered || (e.hasMine && !e.covered && e.ignoreError),
+              )
+              .length;
       final minesAround = target.minesAround;
 
       if (solvedAreas == minesAround) {
@@ -327,9 +272,7 @@ class MinefieldHandler {
       } else if (coveredAreas == minesAround && canFlag) {
         for (final neighbour in neighbours) {
           if (neighbour.covered) {
-            _areas[neighbour.id] = neighbour.copyWith(
-              mark: Mark.flag,
-            );
+            _areas[neighbour.id] = neighbour.copyWith(mark: Mark.flag);
           }
         }
         result = true;
@@ -339,23 +282,17 @@ class MinefieldHandler {
     return result;
   }
 
-  bool removeMartAt(
-    Vector2 position,
-  ) {
+  bool removeMartAt(Vector2 position) {
     final x = position.x.toInt();
     final y = position.y.toInt();
     final id = _areas.indexFor(_minefield, x, y);
     return removeMartById(id);
   }
 
-  bool removeMartById(
-    int id,
-  ) {
+  bool removeMartById(int id) {
     final target = _areas[id];
     if (_areas[id].mark.isNotNone) {
-      _areas[target.id] = target.copyWith(
-        mark: Mark.forcedNone,
-      );
+      _areas[target.id] = target.copyWith(mark: Mark.forcedNone);
       return true;
     } else {
       return false;
@@ -366,14 +303,9 @@ class MinefieldHandler {
     for (final area in _areas) {
       if (area.covered) {
         if (area.hasMine) {
-          _areas[area.id] = area.copyWith(
-            mark: Mark.flag,
-          );
+          _areas[area.id] = area.copyWith(mark: Mark.flag);
         } else {
-          _areas[area.id] = area.copyWith(
-            covered: false,
-            mark: Mark.none,
-          );
+          _areas[area.id] = area.copyWith(covered: false, mark: Mark.none);
         }
       }
     }
@@ -408,9 +340,7 @@ class MinefieldHandler {
             .map((id) => _areas[id])
             .every((element) => !element.covered);
         if (isIsland) {
-          _areas[area.id] = area.copyWith(
-            mark: Mark.flag,
-          );
+          _areas[area.id] = area.copyWith(mark: Mark.flag);
         }
       }
     }
@@ -419,9 +349,7 @@ class MinefieldHandler {
   void ignoreErrors() {
     for (final area in _areas) {
       if (area.hasMine && !area.covered) {
-        _areas[area.id] = area.copyWith(
-          ignoreError: true,
-        );
+        _areas[area.id] = area.copyWith(ignoreError: true);
       }
     }
   }
@@ -440,9 +368,7 @@ class MinefieldHandler {
       }
     }
 
-    _areas[exploded.id] = exploded.copyWith(
-      ignoreError: false,
-    );
+    _areas[exploded.id] = exploded.copyWith(ignoreError: false);
   }
 
   bool revealRandomMine() {
@@ -468,14 +394,10 @@ class MinefieldHandler {
         randomnessManager.nextInt(priorityMinesAmount),
       );
     } else {
-      selectedMine = mines.elementAt(
-        randomnessManager.nextInt(minesAmount),
-      );
+      selectedMine = mines.elementAt(randomnessManager.nextInt(minesAmount));
     }
 
-    _areas[selectedMine.id] = selectedMine.copyWith(
-      revealed: true,
-    );
+    _areas[selectedMine.id] = selectedMine.copyWith(revealed: true);
 
     return true;
   }
@@ -483,26 +405,14 @@ class MinefieldHandler {
   void refreshForms() {
     for (final area in _areas) {
       final form = Form(
-        top: _checkAreaConnections(
-          area,
-          _areas,
-          area.neighbours.topId,
-        ),
-        topLeft: _checkAreaConnections(
-          area,
-          _areas,
-          area.neighbours.topLeftId,
-        ),
+        top: _checkAreaConnections(area, _areas, area.neighbours.topId),
+        topLeft: _checkAreaConnections(area, _areas, area.neighbours.topLeftId),
         topRight: _checkAreaConnections(
           area,
           _areas,
           area.neighbours.topRightId,
         ),
-        bottom: _checkAreaConnections(
-          area,
-          _areas,
-          area.neighbours.bottomId,
-        ),
+        bottom: _checkAreaConnections(area, _areas, area.neighbours.bottomId),
         bottomLeft: _checkAreaConnections(
           area,
           _areas,
@@ -513,26 +423,14 @@ class MinefieldHandler {
           _areas,
           area.neighbours.bottomRightId,
         ),
-        left: _checkAreaConnections(
-          area,
-          _areas,
-          area.neighbours.leftId,
-        ),
-        right: _checkAreaConnections(
-          area,
-          _areas,
-          area.neighbours.rightId,
-        ),
+        left: _checkAreaConnections(area, _areas, area.neighbours.leftId),
+        right: _checkAreaConnections(area, _areas, area.neighbours.rightId),
       );
       _areas[area.id] = area.copyWith(form: form);
     }
   }
 
-  bool _checkAreaConnections(
-    Area target,
-    List<Area> areas,
-    int id,
-  ) {
+  bool _checkAreaConnections(Area target, List<Area> areas, int id) {
     if (id != Neighbours.noLink) {
       final area = areas[id];
       return target.covered &&

@@ -56,8 +56,9 @@ class _VictoryDialogState extends State<VictoryDialog> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final state = widget.bloc.state;
-    final perfectWin =
-        state.areas.where((area) => area.hasMine).every((area) => area.covered);
+    final perfectWin = state.areas
+        .where((area) => area.hasMine)
+        .every((area) => area.covered);
 
     return Stack(
       children: [
@@ -104,54 +105,53 @@ class _VictoryDialogState extends State<VictoryDialog> {
                         Navigator.of(context).pop();
                       },
                       onSettings: () async {
-                        SettingsRoute.open(
-                          widget.outContext,
-                          backToGame: true,
-                        );
+                        SettingsRoute.open(widget.outContext, backToGame: true);
                         Navigator.of(context).pop();
                       },
                     ),
                     Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: Spacing.x8,
-                        ),
-                        child: Column(
-                          children: [
-                            Text(
-                              perfectWin
-                                  ? t.you_won.toUpperCase()
-                                  : t.you_finished.toUpperCase(),
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.onSurface,
-                              ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.x8,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            perfectWin
+                                ? t.you_won.toUpperCase()
+                                : t.you_finished.toUpperCase(),
+                            style: theme.textTheme.labelLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.onSurface,
                             ),
-                            const SizedBox(height: Spacing.x8),
-                            GameContainer(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: Spacing.x8,
-                                ),
-                                child: Text(
-                                  t.generic_win
-                                      .replaceAll(
-                                        "%1\$d",
-                                        state.minefield.mines.toString(),
-                                      )
-                                      .replaceAll(
-                                        "%2\$d",
-                                        (state.duration ~/ 1000).toString(),
-                                      ),
-                                  style: theme.textTheme.labelMedium?.copyWith(
-                                    color: theme.colorScheme.onSurface
-                                        .withOpacity(0.7),
+                          ),
+                          const SizedBox(height: Spacing.x8),
+                          GameContainer(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: Spacing.x8,
+                              ),
+                              child: Text(
+                                t.generic_win
+                                    .replaceAll(
+                                      "%1\$d",
+                                      state.minefield.mines.toString(),
+                                    )
+                                    .replaceAll(
+                                      "%2\$d",
+                                      (state.duration ~/ 1000).toString(),
+                                    ),
+                                style: theme.textTheme.labelMedium?.copyWith(
+                                  color: theme.colorScheme.onSurface.withAlpha(
+                                    _titleAlphaColor,
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: Spacing.x16),
-                          ],
-                        )),
+                          ),
+                          const SizedBox(height: Spacing.x16),
+                        ],
+                      ),
+                    ),
                     GameButton(
                       isPrimary: true,
                       label: t.new_game,
@@ -182,6 +182,7 @@ class _VictoryDialogState extends State<VictoryDialog> {
 
   double _degToRad(double deg) => deg * (pi / 180.0);
 
+  static final _titleAlphaColor = (255.0 * 0.7) as int;
   static const _numberOfParticles = 5;
   static const _gravity = 0.1;
   static const _emissionFrequency = 0.05;

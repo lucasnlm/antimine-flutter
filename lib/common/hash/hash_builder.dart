@@ -1,9 +1,7 @@
 class HashBuilder {
-  HashBuilder({
-    int value = 0,
-    int bitsWritten = 0,
-  })  : _value = value,
-        _bitsWritten = bitsWritten;
+  HashBuilder({int value = 0, int bitsWritten = 0})
+    : _value = value,
+      _bitsWritten = bitsWritten;
 
   int _value;
   int _bitsWritten;

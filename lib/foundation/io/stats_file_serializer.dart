@@ -6,9 +6,7 @@ import 'file_byte_reader.dart';
 import 'file_byte_writer.dart';
 
 class StatsFileSerializer {
-  static List<Stats> fromUint8List(
-    Uint8List bytes,
-  ) {
+  static List<Stats> fromUint8List(Uint8List bytes) {
     List<Stats> result = [];
 
     try {

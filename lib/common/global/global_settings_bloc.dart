@@ -10,11 +10,11 @@ class GlobalSettingsBloc extends Cubit<GlobalSettingsState> {
     required GameThemeManager gameThemeManager,
     required SettingsManager settingsManager,
   }) : super(
-          GlobalSettingsState(
-            colorScheme: gameThemeManager.colorScheme,
-            locale: settingsManager.cache.locale,
-          ),
-        );
+         GlobalSettingsState(
+           colorScheme: gameThemeManager.colorScheme,
+           locale: settingsManager.cache.locale,
+         ),
+       );
 
   void changeTheme(ColorScheme colorScheme) {
     emit(state.copyWith(colorScheme: colorScheme));
@@ -24,15 +24,7 @@ class GlobalSettingsBloc extends Cubit<GlobalSettingsState> {
     emit(state.copyWith(locale: locale));
   }
 
-  void change({
-    required ColorScheme colorScheme,
-    required String? locale,
-  }) {
-    emit(
-      state.copyWith(
-        colorScheme: colorScheme,
-        locale: locale,
-      ),
-    );
+  void change({required ColorScheme colorScheme, required String? locale}) {
+    emit(state.copyWith(colorScheme: colorScheme, locale: locale));
   }
 }

@@ -5,13 +5,7 @@ import 'input_type.dart';
 class GameInput {
   GameInput._();
 
-  static const List<InputMap> inputMaps = [
-    type1,
-    type2,
-    type3,
-    type4,
-    type5,
-  ];
+  static const List<InputMap> inputMaps = [type1, type2, type3, type4, type5];
 
   static get defaultInputMap => type5;
 

@@ -33,13 +33,9 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          title: const GameTitle(),
-        ),
+        appBar: AppBar(title: const GameTitle()),
         body: ScrollConfiguration(
-          behavior: scrollBehavior.copyWith(
-            scrollbars: false,
-          ),
+          behavior: scrollBehavior.copyWith(scrollbars: false),
           child: Align(
             alignment: Alignment.center,
             child: SingleChildScrollView(
@@ -62,9 +58,10 @@ class HomeScreen extends StatelessWidget {
                                 context.read<HomeBloc>().startGame();
                               },
                               icon: Icons.play_arrow,
-                              label: state.setShowContinueGame
-                                  ? t.continue_game
-                                  : t.start,
+                              label:
+                                  state.setShowContinueGame
+                                      ? t.continue_game
+                                      : t.start,
                             ),
                             if (!state.newGameExpanded)
                               GameButton(
@@ -149,10 +146,7 @@ class HomeScreen extends StatelessWidget {
 
   void _handleSideEffect(BuildContext context, SideEffectEvent? state) async {
     if (state is StartNewGameSideEffect) {
-      GameRoute.open(
-        context,
-        state.difficulty,
-      );
+      GameRoute.open(context, state.difficulty);
       context.read<HomeBloc>().newGameStarted();
     }
   }

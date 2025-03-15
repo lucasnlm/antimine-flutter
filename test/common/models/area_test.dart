@@ -16,18 +16,8 @@ void main() {
     ignoreError: true,
     minesAround: 4,
     neighboursList: [7, 8, 9, 10],
-    neighbours: Neighbours(
-      topId: 7,
-      rightId: 8,
-      bottomId: 9,
-      leftId: 10,
-    ),
-    form: Form(
-      top: true,
-      right: true,
-      bottom: true,
-      left: true,
-    ),
+    neighbours: Neighbours(topId: 7, rightId: 8, bottomId: 9, leftId: 10),
+    form: Form(top: true, right: true, bottom: true, left: true),
   );
   const second = Area(
     id: 1,
@@ -39,18 +29,8 @@ void main() {
     ignoreError: true,
     minesAround: 4,
     neighboursList: [7, 8, 9, 10],
-    neighbours: Neighbours(
-      topId: 7,
-      rightId: 8,
-      bottomId: 9,
-      leftId: 10,
-    ),
-    form: Form(
-      top: true,
-      right: true,
-      bottom: true,
-      left: true,
-    ),
+    neighbours: Neighbours(topId: 7, rightId: 8, bottomId: 9, leftId: 10),
+    form: Form(top: true, right: true, bottom: true, left: true),
   );
 
   test('test area equatable', () {
@@ -65,23 +45,15 @@ void main() {
   });
 
   test('test equal with copyWith', () {
-    final shouldBeEqual = first.copyWith(
-      mark: Mark.flag,
-    );
-    final shouldBeDifferent = first.copyWith(
-      mark: Mark.question,
-    );
+    final shouldBeEqual = first.copyWith(mark: Mark.flag);
+    final shouldBeDifferent = first.copyWith(mark: Mark.question);
     expect(first == shouldBeEqual, isTrue);
     expect(first == shouldBeDifferent, isFalse);
   });
 
   test('test equal with copyWith and lists', () {
-    final shouldBeEqual = first.copyWith(
-      mark: Mark.flag,
-    );
-    final shouldBeDifferent = first.copyWith(
-      mark: Mark.question,
-    );
+    final shouldBeEqual = first.copyWith(mark: Mark.flag);
+    final shouldBeDifferent = first.copyWith(mark: Mark.question);
 
     final firstList = <Area>[first];
     final shouldBeEqualList = <Area>[shouldBeEqual];

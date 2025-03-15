@@ -3,16 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../foundation/ui/spacing.dart';
 
 class GameEmoji extends StatefulWidget {
-  const GameEmoji({
-    super.key,
-    required this.emojis,
-  });
+  const GameEmoji({super.key, required this.emojis});
 
   final List<String> emojis;
 
-  String randomEmoji({
-    String? filter,
-  }) {
+  String randomEmoji({String? filter}) {
     final list = List.castFrom(emojis);
     list.shuffle();
     if (filter != null) {
@@ -42,12 +37,7 @@ class _GameEmojiState extends State<GameEmoji> {
   Widget build(BuildContext context) {
     return IconButton(
       iconSize: Spacing.x48,
-      icon: Text(
-        _emoji,
-        style: const TextStyle(
-          fontSize: Spacing.x48,
-        ),
-      ),
+      icon: Text(_emoji, style: const TextStyle(fontSize: Spacing.x48)),
       onPressed: () {
         setState(() {
           _emoji = widget.randomEmoji(filter: _emoji);

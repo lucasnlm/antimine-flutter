@@ -26,9 +26,5 @@ class LanguageState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        loading,
-        selected,
-        languages,
-      ];
+  List<Object?> get props => [loading, selected, languages];
 }

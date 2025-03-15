@@ -4,10 +4,7 @@ import '../../../common/utils/build_context_ext.dart';
 import '../../../foundation/ui/spacing.dart';
 
 class GameDialog extends StatelessWidget {
-  const GameDialog({
-    super.key,
-    required this.child,
-  });
+  const GameDialog({super.key, required this.child});
 
   final Widget child;
 
@@ -31,9 +28,7 @@ class GameDialog extends StatelessWidget {
           shadowColor: dialogTheme.shadowColor,
           surfaceTintColor: dialogTheme.surfaceTintColor,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Spacing.x8),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(Spacing.x8)),
           ),
           type: MaterialType.card,
           clipBehavior: Clip.none,

@@ -6,9 +6,7 @@ import '../../../common/settings/settings_manager.dart';
 import 'settings_state.dart';
 
 class SettingsBloc extends Cubit<SettingsState> {
-  SettingsBloc({
-    required this.settingsManager,
-  }) : super(const SettingsState());
+  SettingsBloc({required this.settingsManager}) : super(const SettingsState());
 
   final SettingsManager settingsManager;
 

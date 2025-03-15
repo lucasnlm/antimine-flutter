@@ -22,11 +22,11 @@ class GameBackgroundColor extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        themeColorType,
-        background,
-        onBackground,
-        isPremium,
-        isDark,
-      ];
+    id,
+    themeColorType,
+    background,
+    onBackground,
+    isPremium,
+    isDark,
+  ];
 }

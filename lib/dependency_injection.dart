@@ -28,10 +28,7 @@ import 'foundation/side_effect/side_effect_bloc.dart';
 import 'foundation/uuid/uuid_generator.dart';
 
 class DependencyInjection extends StatelessWidget {
-  const DependencyInjection({
-    super.key,
-    required this.child,
-  });
+  const DependencyInjection({super.key, required this.child});
 
   final Widget child;
 
@@ -39,30 +36,27 @@ class DependencyInjection extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<SettingsRepository>(
-          create: (_) => SettingsRepository(),
-        ),
-        Provider<InAppUpdateManager>(
-          create: (_) => InAppUpdateManager(),
-        ),
-        Provider<InAppReviewManager>(
-          create: (_) => InAppReviewManager(),
-        ),
+        Provider<SettingsRepository>(create: (_) => SettingsRepository()),
+        Provider<InAppUpdateManager>(create: (_) => InAppUpdateManager()),
+        Provider<InAppReviewManager>(create: (_) => InAppReviewManager()),
         Provider<SettingsManager>(
-          create: (context) => SettingsManager(
-            repository: context.read<SettingsRepository>(),
-          ),
+          create:
+              (context) => SettingsManager(
+                repository: context.read<SettingsRepository>(),
+              ),
         ),
         Provider<GameThemeManager>(
-          create: (context) => GameThemeManager(
-            settingsManager: context.read<SettingsManager>(),
-          ),
+          create:
+              (context) => GameThemeManager(
+                settingsManager: context.read<SettingsManager>(),
+              ),
         ),
         BlocProvider<GlobalSettingsBloc>(
-          create: (context) => GlobalSettingsBloc(
-            gameThemeManager: context.read<GameThemeManager>(),
-            settingsManager: context.read<SettingsManager>(),
-          ),
+          create:
+              (context) => GlobalSettingsBloc(
+                gameThemeManager: context.read<GameThemeManager>(),
+                settingsManager: context.read<SettingsManager>(),
+              ),
         ),
         Provider<VibratorManager>(
           create: (context) {
@@ -72,79 +66,73 @@ class DependencyInjection extends StatelessWidget {
           },
         ),
         Provider<GameAudioManager>(
-          create: (context) => GameAudioManager(
-            settingsManager: context.read<SettingsManager>(),
-          ),
+          create:
+              (context) => GameAudioManager(
+                settingsManager: context.read<SettingsManager>(),
+              ),
         ),
         Provider<HintManager>(
-          create: (context) => HintManager(
-            repository: context.read<SettingsRepository>(),
-          ),
+          create:
+              (context) =>
+                  HintManager(repository: context.read<SettingsRepository>()),
         ),
         Provider<RandomnessManager>(
-          create: (_) => RandomnessManager(
-            originalSeed: DateTime.now().millisecondsSinceEpoch,
-          ),
+          create:
+              (_) => RandomnessManager(
+                originalSeed: DateTime.now().millisecondsSinceEpoch,
+              ),
         ),
         Provider<HashManager>(
-          create: (context) => HashManager(
-            randomnessManager: context.read<RandomnessManager>(),
-          ),
+          create:
+              (context) => HashManager(
+                randomnessManager: context.read<RandomnessManager>(),
+              ),
         ),
-        Provider<UuidGenerator>(
-          create: (_) => UuidGenerator(),
-        ),
-        Provider<StatsFileManager>(
-          create: (_) => StatsFileManager(),
-        ),
+        Provider<UuidGenerator>(create: (_) => UuidGenerator()),
+        Provider<StatsFileManager>(create: (_) => StatsFileManager()),
         Provider<SaveFileManager>(
-          create: (context) => SaveFileManager(
-            uuidGenerator: context.read<UuidGenerator>(),
-          ),
+          create:
+              (context) =>
+                  SaveFileManager(uuidGenerator: context.read<UuidGenerator>()),
         ),
-        Provider<ShareImageManager>(
-          create: (context) => ShareImageManager(),
-        ),
-        Provider<DimensionManager>(
-          create: (context) => DimensionManager(),
-        ),
+        Provider<ShareImageManager>(create: (context) => ShareImageManager()),
+        Provider<DimensionManager>(create: (context) => DimensionManager()),
         Provider<MinefieldManager>(
-          create: (context) => MinefieldManager(
-            dimensionManager: context.read<DimensionManager>(),
-            settingsManager: context.read<SettingsManager>(),
-          ),
+          create:
+              (context) => MinefieldManager(
+                dimensionManager: context.read<DimensionManager>(),
+                settingsManager: context.read<SettingsManager>(),
+              ),
         ),
-        Provider<MinefieldSolver>(
-          create: (_) => MinefieldSolver(),
-        ),
+        Provider<MinefieldSolver>(create: (_) => MinefieldSolver()),
         Provider<RandomMinefieldCreator>(
-          create: (context) => RandomMinefieldCreator(
-            randomnessManager: context.read<RandomnessManager>(),
-          ),
+          create:
+              (context) => RandomMinefieldCreator(
+                randomnessManager: context.read<RandomnessManager>(),
+              ),
         ),
         Provider<NativeMinefieldCreator>(
-          create: (context) => NativeMinefieldCreator(
-            randomMinefieldCreator: context.read<RandomMinefieldCreator>(),
-          ),
+          create:
+              (context) => NativeMinefieldCreator(
+                randomMinefieldCreator: context.read<RandomMinefieldCreator>(),
+              ),
         ),
         Provider<MinefieldHandler>(
-          create: (context) => MinefieldHandler(
-            minefieldCreator: context.read<NativeMinefieldCreator>(),
-            randomMinefieldCreator: context.read<RandomMinefieldCreator>(),
-            randomnessManager: context.read<RandomnessManager>(),
-          ),
+          create:
+              (context) => MinefieldHandler(
+                minefieldCreator: context.read<NativeMinefieldCreator>(),
+                randomMinefieldCreator: context.read<RandomMinefieldCreator>(),
+                randomnessManager: context.read<RandomnessManager>(),
+              ),
         ),
-        Provider<DateTimeProvider>(
-          create: (_) => DateTimeProvider(),
-        ),
-        BlocProvider<SideEffectBloc>(
-          create: (_) => SideEffectBloc(),
-        ),
+        Provider<DateTimeProvider>(create: (_) => DateTimeProvider()),
+        BlocProvider<SideEffectBloc>(create: (_) => SideEffectBloc()),
         BlocProvider<CustomBloc>(
-          create: (context) => CustomBloc(
-            hashManager: context.read<HashManager>(),
-            settingsManager: context.read<SettingsManager>(),
-          ),
+          create:
+              (context) => CustomBloc(
+                hashManager: context.read<HashManager>(),
+                settingsManager: context.read<SettingsManager>(),
+              ),
         ),
       ],
       child: child,

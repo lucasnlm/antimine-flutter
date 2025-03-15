@@ -43,22 +43,17 @@ class Form extends Equatable {
 
   @override
   List<Object?> get props => [
-        top,
-        bottom,
-        left,
-        right,
-        topLeft,
-        topRight,
-        bottomLeft,
-        bottomRight,
-      ];
+    top,
+    bottom,
+    left,
+    right,
+    topLeft,
+    topRight,
+    bottomLeft,
+    bottomRight,
+  ];
 
-  static Form getFormByPosition(
-    int x,
-    int y,
-    int width,
-    int height,
-  ) {
+  static Form getFormByPosition(int x, int y, int width, int height) {
     return Form(
       top: y != 0,
       bottom: y != height - 1,

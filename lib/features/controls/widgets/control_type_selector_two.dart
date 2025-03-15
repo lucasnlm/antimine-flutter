@@ -35,17 +35,19 @@ class ControlTypeSelectorTwo extends StatelessWidget {
               Text(
                 firstAction,
                 style: textTheme.titleSmall?.copyWith(
-                  color: selected
-                      ? theme.colorScheme.onPrimary
-                      : theme.colorScheme.onSurface,
+                  color:
+                      selected
+                          ? theme.colorScheme.onPrimary
+                          : theme.colorScheme.onSurface,
                 ),
               ),
               Text(
                 firstReaction,
                 style: textTheme.bodySmall?.copyWith(
-                  color: selected
-                      ? theme.colorScheme.onPrimary
-                      : theme.colorScheme.onSurface,
+                  color:
+                      selected
+                          ? theme.colorScheme.onPrimary
+                          : theme.colorScheme.onSurface,
                 ),
               ),
             ],
@@ -55,17 +57,19 @@ class ControlTypeSelectorTwo extends StatelessWidget {
               Text(
                 secondAction,
                 style: textTheme.titleSmall?.copyWith(
-                  color: selected
-                      ? theme.colorScheme.onPrimary
-                      : theme.colorScheme.onSurface,
+                  color:
+                      selected
+                          ? theme.colorScheme.onPrimary
+                          : theme.colorScheme.onSurface,
                 ),
               ),
               Text(
                 secondReaction,
                 style: textTheme.bodySmall?.copyWith(
-                  color: selected
-                      ? theme.colorScheme.onPrimary
-                      : theme.colorScheme.onSurface,
+                  color:
+                      selected
+                          ? theme.colorScheme.onPrimary
+                          : theme.colorScheme.onSurface,
                 ),
               ),
             ],

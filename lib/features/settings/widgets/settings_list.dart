@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,10 +12,7 @@ import '../models/settings_item.dart';
 import 'settings_panel.dart';
 
 class SettingsList extends StatelessWidget {
-  const SettingsList({
-    super.key,
-    required this.settings,
-  });
+  const SettingsList({super.key, required this.settings});
 
   final GameSettings settings;
 
@@ -73,9 +68,7 @@ class SettingsList extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: Spacing.x16,
-              ),
+              const SizedBox(height: Spacing.x16),
               SettingsPanel(
                 title: t.settings_gameplay,
                 children: [
@@ -121,9 +114,7 @@ class SettingsList extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: Spacing.x24,
-              ),
+              const SizedBox(height: Spacing.x24),
             ],
           ),
         ),

@@ -6,9 +6,7 @@ import '../../helpers/mocks/test_settings_repository.dart';
 
 void main() {
   final testSettingsRepository = TestSettingsRepository();
-  final hintManager = HintManager(
-    repository: testSettingsRepository,
-  );
+  final hintManager = HintManager(repository: testSettingsRepository);
 
   tearDown(() {
     testSettingsRepository.clear();

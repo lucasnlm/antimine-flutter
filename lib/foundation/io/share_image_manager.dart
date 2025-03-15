@@ -4,25 +4,18 @@ import 'dart:typed_data';
 import 'package:path_provider/path_provider.dart';
 
 class ShareImageManager {
-  ShareImageManager({
-    Future<Directory>? shareDirectory,
-  }) : shareDirectory = shareDirectory ?? _getShareDirectory();
+  ShareImageManager({Future<Directory>? shareDirectory})
+    : shareDirectory = shareDirectory ?? _getShareDirectory();
 
   final Future<Directory> shareDirectory;
 
-  Future<File?> saveImage(
-    ByteData byteData,
-    String suffix,
-  ) async {
+  Future<File?> saveImage(ByteData byteData, String suffix) async {
     final shareFile = await _shareImageOf(suffix);
     if (shareFile.existsSync()) {
       shareFile.deleteSync();
     }
     shareFile.createSync();
-    shareFile.writeAsBytesSync(
-      byteData.buffer.asUint8List(),
-      flush: true,
-    );
+    shareFile.writeAsBytesSync(byteData.buffer.asUint8List(), flush: true);
     return shareFile;
   }
 

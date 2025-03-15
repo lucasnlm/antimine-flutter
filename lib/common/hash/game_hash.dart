@@ -19,9 +19,5 @@ class GameHash extends Equatable {
   String get hashSeed => hash.split(':')[1];
 
   @override
-  List<Object?> get props => [
-        minefield,
-        initX,
-        initY,
-      ];
+  List<Object?> get props => [minefield, initX, initY];
 }

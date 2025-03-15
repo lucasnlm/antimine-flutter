@@ -14,11 +14,7 @@ class ControlsState extends Equatable {
   final Action defaultAction;
 
   @override
-  List<Object?> get props => [
-        selectedId,
-        defaultAction,
-        touchSensibility,
-      ];
+  List<Object?> get props => [selectedId, defaultAction, touchSensibility];
 
   ControlsState copyWith({
     int? selectedId,

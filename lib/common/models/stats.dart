@@ -23,12 +23,12 @@ class Stats extends Equatable {
 
   @override
   List<Object?> get props => [
-        duration,
-        mines,
-        victory,
-        width,
-        height,
-        openArea,
-        difficulty,
-      ];
+    duration,
+    mines,
+    victory,
+    width,
+    height,
+    openArea,
+    difficulty,
+  ];
 }

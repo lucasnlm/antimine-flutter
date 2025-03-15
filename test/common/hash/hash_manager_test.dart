@@ -5,9 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final randomnessManager = RandomnessManager(originalSeed: 0);
-  final hashManager = HashManager(
-    randomnessManager: randomnessManager,
-  );
+  final hashManager = HashManager(randomnessManager: randomnessManager);
 
   test('hashManager create valid hashes', () {
     // Given

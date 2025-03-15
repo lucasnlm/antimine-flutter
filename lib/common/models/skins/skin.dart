@@ -21,14 +21,14 @@ class Skin extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        skin,
-        spritePreview,
-        connectAreas,
-        canTint,
-        isPremium,
-        fillBackground,
-      ];
+    id,
+    skin,
+    spritePreview,
+    connectAreas,
+    canTint,
+    isPremium,
+    fillBackground,
+  ];
 
   @override
   bool get stringify => true;

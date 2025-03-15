@@ -1,9 +1,7 @@
 import 'dart:math';
 
 class RandomnessManager {
-  RandomnessManager({
-    required this.originalSeed,
-  });
+  RandomnessManager({required this.originalSeed});
 
   final int originalSeed;
   late final _random = Random(originalSeed);

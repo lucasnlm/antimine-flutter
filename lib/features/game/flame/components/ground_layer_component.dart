@@ -59,7 +59,7 @@ class GroundLayerComponent extends CommonLayerComponent {
       if (area.minesAround > 0 && area.minesAround <= 8) {
         final color = theme.around[area.minesAround - 1];
         if (area.dimNumber) {
-          batchList.color = color.withOpacity(GameConstants.dimOpacity);
+          batchList.color = color.withAlpha(GameConstants.dimOpacity);
         } else {
           batchList.color = color;
         }

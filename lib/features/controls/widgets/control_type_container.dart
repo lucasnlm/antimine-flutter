@@ -27,7 +27,7 @@ class ControlTypeContainer extends StatelessWidget {
           vertical: Spacing.x12,
         ),
         decoration: BoxDecoration(
-          color: selected ? colorScheme.primary.withOpacity(0.8) : null,
+          color: selected ? colorScheme.primary.withAlpha(204) : null,
           borderRadius: BorderRadius.circular(Spacing.x8),
         ),
         child: child,

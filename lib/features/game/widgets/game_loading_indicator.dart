@@ -19,9 +19,7 @@ class GameLoadingIndicator extends StatelessWidget {
           return const SafeArea(
             child: Align(
               alignment: Alignment.topCenter,
-              child: LinearProgressIndicator(
-                minHeight: Spacing.x2,
-              ),
+              child: LinearProgressIndicator(minHeight: Spacing.x2),
             ),
           );
         } else {

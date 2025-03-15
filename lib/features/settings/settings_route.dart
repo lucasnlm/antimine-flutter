@@ -8,10 +8,7 @@ import 'bloc/settings_bloc.dart';
 import 'screen/settings_screen.dart';
 
 class SettingsRoute extends StatelessWidget {
-  const SettingsRoute({
-    super.key,
-    required this.params,
-  });
+  const SettingsRoute({super.key, required this.params});
 
   final SettingsParams params;
 
@@ -19,13 +16,9 @@ class SettingsRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<SettingsBloc>(
       create: (BuildContext context) {
-        return SettingsBloc(
-          settingsManager: context.read(),
-        )..loadSettings();
+        return SettingsBloc(settingsManager: context.read())..loadSettings();
       },
-      child: SettingsScreen(
-        params: params,
-      ),
+      child: SettingsScreen(params: params),
     );
   }
 
@@ -36,16 +29,12 @@ class SettingsRoute extends StatelessWidget {
     if (backToGame) {
       context.pushReplacement(
         GameRoutes.settings,
-        extra: SettingsParams(
-          backToGame: backToGame,
-        ).toMap(),
+        extra: SettingsParams(backToGame: backToGame).toMap(),
       );
     } else {
       await context.push(
         GameRoutes.settings,
-        extra: SettingsParams(
-          backToGame: backToGame,
-        ).toMap(),
+        extra: SettingsParams(backToGame: backToGame).toMap(),
       );
     }
   }

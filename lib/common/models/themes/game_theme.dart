@@ -34,17 +34,17 @@ class GameTheme extends Equatable {
 
   @override
   List<Object?> get props => [
-        background,
-        cover,
-        uncovered,
-        explodedMineBackground,
-        neutralMineBackground,
-        ignoredMineBackground,
-        mineColor,
-        iconColor,
-        iconBehavior,
-        connectAreas,
-        canTint,
-        around,
-      ];
+    background,
+    cover,
+    uncovered,
+    explodedMineBackground,
+    neutralMineBackground,
+    ignoredMineBackground,
+    mineColor,
+    iconColor,
+    iconBehavior,
+    connectAreas,
+    canTint,
+    around,
+  ];
 }

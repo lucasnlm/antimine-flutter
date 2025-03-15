@@ -9,13 +9,13 @@ class ControlDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.x16,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.x16),
       child: Container(
         height: Spacing.x2,
-        color: colorScheme.onSurface.withOpacity(0.1),
+        color: colorScheme.onSurface.withAlpha(_controlDividerAlpha),
       ),
     );
   }
+
+  static final _controlDividerAlpha = (255.0 * 0.25) as int;
 }

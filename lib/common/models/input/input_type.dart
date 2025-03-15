@@ -1,6 +1,1 @@
-enum InputType {
-  singleTap,
-  doubleTap,
-  longTap,
-  actionController,
-}
+enum InputType { singleTap, doubleTap, longTap, actionController }

@@ -28,14 +28,14 @@ class ThemesState extends Equatable {
 
   @override
   List<Object?> get props => [
-        backgroundIndex,
-        initialBackgroundIndex,
-        primaryColorIndex,
-        initialPrimaryColorIndex,
-        skinIndex,
-        initialSkinIndex,
-        colorScheme,
-      ];
+    backgroundIndex,
+    initialBackgroundIndex,
+    primaryColorIndex,
+    initialPrimaryColorIndex,
+    skinIndex,
+    initialSkinIndex,
+    colorScheme,
+  ];
 
   ThemesState copyWith({
     int? backgroundIndex,

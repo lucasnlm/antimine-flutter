@@ -23,35 +23,23 @@ class GameRouting {
           path: GameRoutes.startUp,
           builder: (_, __) => const StartupRoute(),
         ),
-        GoRoute(
-          path: GameRoutes.home,
-          builder: (_, __) => const HomeRoute(),
-        ),
+        GoRoute(path: GameRoutes.home, builder: (_, __) => const HomeRoute()),
         GoRoute(
           path: GameRoutes.game,
           builder: (_, state) {
-            return GameRoute(
-              params: GameParams.fromMap(
-                state.extra,
-              ),
-            );
+            return GameRoute(params: GameParams.fromMap(state.extra));
           },
         ),
-        GoRoute(
-          path: GameRoutes.stats,
-          builder: (_, __) => const StatsRoute(),
-        ),
+        GoRoute(path: GameRoutes.stats, builder: (_, __) => const StatsRoute()),
         GoRoute(
           path: GameRoutes.tutorial,
           builder: (_, __) => const TutorialRoute(),
         ),
         GoRoute(
           path: GameRoutes.settings,
-          builder: (_, state) => SettingsRoute(
-            params: SettingsParams.fromMap(
-              state.extra,
-            ),
-          ),
+          builder:
+              (_, state) =>
+                  SettingsRoute(params: SettingsParams.fromMap(state.extra)),
         ),
         GoRoute(
           path: GameRoutes.themes,
@@ -65,10 +53,7 @@ class GameRouting {
           path: GameRoutes.languages,
           builder: (_, __) => const LanguageRoute(),
         ),
-        GoRoute(
-          path: GameRoutes.about,
-          builder: (_, __) => const AboutRoute(),
-        ),
+        GoRoute(path: GameRoutes.about, builder: (_, __) => const AboutRoute()),
         GoRoute(
           path: GameRoutes.history,
           builder: (_, __) => const HistoryRoute(),

@@ -35,7 +35,8 @@ class HoverComponent extends ShapeComponent
 
   @override
   void onNewState(GameState state) {
-    visible = state.status == GameStatus.notStarted ||
+    visible =
+        state.status == GameStatus.notStarted ||
         state.status == GameStatus.inProgress;
   }
 
@@ -65,12 +66,16 @@ class HoverComponent extends ShapeComponent
     if (!enabled) {
       _opacity = max(_opacity - _expansionSpeed * dt, 0.0);
       _expansion = max(_expansion - _expansionSpeed * dt, 0.0);
-      final color = theme.cover.darken(0.1).withOpacity(_opacity);
+      final color = theme.cover
+          .darken(0.1)
+          .withAlpha((_opacity * 255.0) as int);
       paint.colorFilter = ColorFilter.mode(color, BlendMode.srcIn);
     } else {
       _opacity = min(_opacity + _expansionSpeed * dt, _maxOpacity);
       _expansion = min(_expansion + _expansionSpeed * dt, _maxExpansion);
-      final color = theme.cover.darken(0.1).withOpacity(0.5);
+      final color = theme.cover
+          .darken(0.1)
+          .withAlpha((_opacity * 255.0) as int);
       paint.colorFilter = ColorFilter.mode(color, BlendMode.srcIn);
     }
   }

@@ -6,10 +6,7 @@ import '../bloc/game_bloc.dart';
 import '../bloc/game_state.dart';
 
 class HighlightContainer extends StatelessWidget {
-  const HighlightContainer({
-    super.key,
-    required this.children,
-  });
+  const HighlightContainer({super.key, required this.children});
 
   final List<Widget> children;
 
@@ -30,7 +27,7 @@ class HighlightContainer extends StatelessWidget {
               vertical: Spacing.x8,
             ),
             decoration: BoxDecoration(
-              color: theme.colorScheme.onSurface.withOpacity(0.1),
+              color: theme.colorScheme.onSurface.withAlpha(_actionBorderAlpha),
               borderRadius: BorderRadius.circular(Spacing.x8),
             ),
             child: Row(
@@ -43,4 +40,6 @@ class HighlightContainer extends StatelessWidget {
       },
     );
   }
+
+  static final _actionBorderAlpha = (255.0 * 0.1) as int;
 }

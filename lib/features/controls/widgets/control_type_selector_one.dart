@@ -30,22 +30,22 @@ class ControlTypeSelectorOne extends StatelessWidget {
             Text(
               title,
               style: textTheme.titleSmall?.copyWith(
-                color: selected
-                    ? theme.colorScheme.onPrimary
-                    : theme.colorScheme.onSurface,
+                color:
+                    selected
+                        ? theme.colorScheme.onPrimary
+                        : theme.colorScheme.onSurface,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: Spacing.x16,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: Spacing.x16),
               child: Text(
                 description,
                 textAlign: TextAlign.center,
                 style: textTheme.bodySmall?.copyWith(
-                  color: selected
-                      ? theme.colorScheme.onPrimary
-                      : theme.colorScheme.onSurface,
+                  color:
+                      selected
+                          ? theme.colorScheme.onPrimary
+                          : theme.colorScheme.onSurface,
                 ),
               ),
             ),

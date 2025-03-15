@@ -9,10 +9,7 @@ class StartupState extends Equatable {
   final bool initialized;
   final bool openGameDirectly;
 
-  StartupState copyWith({
-    bool? initialized,
-    bool? openGameDirectly,
-  }) {
+  StartupState copyWith({bool? initialized, bool? openGameDirectly}) {
     return StartupState(
       initialized: initialized ?? this.initialized,
       openGameDirectly: openGameDirectly ?? this.openGameDirectly,
@@ -20,8 +17,5 @@ class StartupState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        initialized,
-        openGameDirectly,
-      ];
+  List<Object?> get props => [initialized, openGameDirectly];
 }

@@ -27,9 +27,7 @@ void main() {
 
   test('hash builder - passing other initial value', () {
     // Given
-    final hashBuilder = HashBuilder(
-      value: 0x123456,
-    );
+    final hashBuilder = HashBuilder(value: 0x123456);
 
     // When
     final value = hashBuilder.value;
@@ -40,9 +38,7 @@ void main() {
 
   test('hash builder - reading position by byte', () {
     // Given
-    final hashBuilder = HashBuilder(
-      value: 0x123456,
-    );
+    final hashBuilder = HashBuilder(value: 0x123456);
 
     // When
     final value = hashBuilder.readByteAt(1);
@@ -53,9 +49,7 @@ void main() {
 
   test('hash builder - reading position by short', () {
     // Given
-    final hashBuilder = HashBuilder(
-      value: 0x123456,
-    );
+    final hashBuilder = HashBuilder(value: 0x123456);
 
     // When
     final value = hashBuilder.readShortAt(1);

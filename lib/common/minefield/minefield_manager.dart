@@ -82,40 +82,15 @@ class MinefieldManager {
           mines: mines,
         );
       case Difficulty.beginner:
-        return Minefield(
-          seed: seed,
-          width: 9,
-          height: 9,
-          mines: 10,
-        );
+        return Minefield(seed: seed, width: 9, height: 9, mines: 10);
       case Difficulty.intermediate:
-        return Minefield(
-          seed: seed,
-          width: 16,
-          height: 16,
-          mines: 40,
-        );
+        return Minefield(seed: seed, width: 16, height: 16, mines: 40);
       case Difficulty.expert:
-        return Minefield(
-          seed: seed,
-          width: 24,
-          height: 24,
-          mines: 99,
-        );
+        return Minefield(seed: seed, width: 24, height: 24, mines: 99);
       case Difficulty.master:
-        return Minefield(
-          seed: seed,
-          width: 50,
-          height: 50,
-          mines: 450,
-        );
+        return Minefield(seed: seed, width: 50, height: 50, mines: 450);
       case Difficulty.legend:
-        return Minefield(
-          seed: seed,
-          width: 100,
-          height: 100,
-          mines: 2000,
-        );
+        return Minefield(seed: seed, width: 100, height: 100, mines: 2000);
       case Difficulty.custom:
         return Minefield(
           seed: seed,
@@ -126,9 +101,7 @@ class MinefieldManager {
     }
   }
 
-  String formatToString(
-    Difficulty difficulty,
-  ) {
+  String formatToString(Difficulty difficulty) {
     final minefield = createMinefieldByDifficulty(
       difficulty: difficulty,
       seed: 0,

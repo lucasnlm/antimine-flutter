@@ -31,8 +31,8 @@ class HomeState extends Equatable {
 
   @override
   List<Object?> get props => [
-        newGameExpanded,
-        setShowContinueGame,
-        difficulties,
-      ];
+    newGameExpanded,
+    setShowContinueGame,
+    difficulties,
+  ];
 }

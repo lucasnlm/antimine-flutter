@@ -12,11 +12,7 @@ class TutorialRoute extends StatelessWidget {
     return const TutorialScreen();
   }
 
-  static Future<T?> open<T extends Object?>(
-    BuildContext context,
-  ) {
-    return context.push(
-      GameRoutes.tutorial,
-    );
+  static Future<T?> open<T extends Object?>(BuildContext context) {
+    return context.push(GameRoutes.tutorial);
   }
 }

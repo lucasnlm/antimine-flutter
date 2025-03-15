@@ -5,9 +5,5 @@ import 'antimine_game.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(
-    const DependencyInjection(
-      child: AntimineGame(),
-    ),
-  );
+  runApp(const DependencyInjection(child: AntimineGame()));
 }

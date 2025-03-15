@@ -14,21 +14,18 @@ class ThemesRoute extends StatelessWidget {
   @override
   Widget build(context) {
     return BlocProvider<ThemesBloc>(
-      create: (_) => ThemesBloc(
-        platformBrightness: PlatformDispatcher.instance.platformBrightness,
-        gameThemeManager: context.read(),
-        settingsManager: context.read(),
-        globalSettingsBloc: context.read(),
-      ),
+      create:
+          (_) => ThemesBloc(
+            platformBrightness: PlatformDispatcher.instance.platformBrightness,
+            gameThemeManager: context.read(),
+            settingsManager: context.read(),
+            globalSettingsBloc: context.read(),
+          ),
       child: const ThemesScreen(),
     );
   }
 
-  static Future<T?> open<T extends Object?>(
-    BuildContext context,
-  ) {
-    return context.push(
-      GameRoutes.themes,
-    );
+  static Future<T?> open<T extends Object?>(BuildContext context) {
+    return context.push(GameRoutes.themes);
   }
 }

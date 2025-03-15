@@ -14,19 +14,16 @@ class HistoryRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HistoryBloc>(
-      create: (context) => HistoryBloc(
-        saveFileManager: context.read<SaveFileManager>(),
-        hashManager: context.read<HashManager>(),
-      ),
+      create:
+          (context) => HistoryBloc(
+            saveFileManager: context.read<SaveFileManager>(),
+            hashManager: context.read<HashManager>(),
+          ),
       child: const HistoryScreen(),
     );
   }
 
-  static void open(
-    BuildContext context,
-  ) async {
-    await context.push(
-      GameRoutes.history,
-    );
+  static void open(BuildContext context) async {
+    await context.push(GameRoutes.history);
   }
 }

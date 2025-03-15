@@ -6,16 +6,18 @@ void main() {
   final minApp = MaterialApp(
     home: Scaffold(
       body: Builder(
-        builder: (context) => TextButton(
-          onPressed: () => showGameAlert(
-            context: context,
-            content: 'Content',
-            title: 'Title',
-            primaryAction: 'Primary',
-            onPrimary: expectAsync1((_) {}),
-          ),
-          child: const Text('Show Alert'),
-        ),
+        builder:
+            (context) => TextButton(
+              onPressed:
+                  () => showGameAlert(
+                    context: context,
+                    content: 'Content',
+                    title: 'Title',
+                    primaryAction: 'Primary',
+                    onPrimary: expectAsync1((_) {}),
+                  ),
+              child: const Text('Show Alert'),
+            ),
       ),
     ),
   );

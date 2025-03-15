@@ -1,5 +1,1 @@
-enum ThemeColorType {
-  light,
-  dark,
-  amoled,
-}
+enum ThemeColorType { light, dark, amoled }

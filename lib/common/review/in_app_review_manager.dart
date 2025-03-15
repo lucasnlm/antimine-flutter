@@ -1,9 +1,8 @@
 import 'package:in_app_review/in_app_review.dart';
 
 class InAppReviewManager {
-  InAppReviewManager({
-    InAppReview? inAppReview,
-  }) : _inAppReview = inAppReview ?? InAppReview.instance;
+  InAppReviewManager({InAppReview? inAppReview})
+    : _inAppReview = inAppReview ?? InAppReview.instance;
 
   bool _alreadyRequested = false;
   final InAppReview _inAppReview;

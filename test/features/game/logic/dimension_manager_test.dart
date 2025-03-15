@@ -4,11 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final mockedApp = MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Test'),
-      ),
-    ),
+    home: Scaffold(appBar: AppBar(title: const Text('Test'))),
   );
   const screenSize = Size(600, 800);
 
@@ -24,28 +20,27 @@ void main() {
     expect(appBarHeight, 56);
   });
 
-  testWidgets('calcAreaSize returns the size of the area on Desktop',
-      (tester) async {
-    final dimensionManager = DimensionManager(
-      isMobile: true,
-    );
+  testWidgets('calcAreaSize returns the size of the area on Desktop', (
+    tester,
+  ) async {
+    final dimensionManager = DimensionManager(isMobile: true);
     dimensionManager.init(screenSize: screenSize);
     final areaSize = dimensionManager.calcAreaSize();
     expect(areaSize.toInt(), 50);
   });
 
-  testWidgets('calcAreaSize returns the size of the area on Mobile',
-      (tester) async {
-    final dimensionManager = DimensionManager(
-      isMobile: true,
-    );
+  testWidgets('calcAreaSize returns the size of the area on Mobile', (
+    tester,
+  ) async {
+    final dimensionManager = DimensionManager(isMobile: true);
     dimensionManager.init(screenSize: screenSize);
     final areaSize = dimensionManager.calcAreaSize();
     expect(areaSize.toInt(), (600 ~/ 12));
   });
 
-  testWidgets('standardMinefieldSize returns the size of the minefield',
-      (tester) async {
+  testWidgets('standardMinefieldSize returns the size of the minefield', (
+    tester,
+  ) async {
     final dimensionManager = DimensionManager(isMobile: false);
     dimensionManager.init(screenSize: screenSize);
     final minefieldSize = dimensionManager.standardMinefieldSize();

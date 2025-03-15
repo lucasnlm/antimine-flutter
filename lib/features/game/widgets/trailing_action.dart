@@ -11,10 +11,7 @@ import '../logic/game_constants.dart';
 import 'hint_action.dart';
 
 class TrailingAction extends StatelessWidget {
-  const TrailingAction({
-    super.key,
-    required this.settings,
-  });
+  const TrailingAction({super.key, required this.settings});
 
   final GameSettings settings;
 

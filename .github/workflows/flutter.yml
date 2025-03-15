@@ -23,14 +23,14 @@ jobs:
       - name: Set Up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.0'
+          flutter-version: '3.29.0'
           channel: 'stable'
 
       - name: Install Dependencies
         run: flutter pub get
 
       - name: Code Style
-        run: flutter format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
 
       - name: Lint
         run: flutter analyze .
@@ -39,4 +39,4 @@ jobs:
         run: flutter test
 
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --debug

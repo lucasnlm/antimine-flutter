@@ -56,27 +56,13 @@ class TutorialScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                TutorialContainer(
-                  text: t.tutorial_basic,
-                ),
-                const TutorialImage(
-                  asset: 'assets/tutorial/tutorial_1.png',
-                ),
-                TutorialContainer(
-                  text: t.tutorial_text1,
-                ),
-                const TutorialImage(
-                  asset: 'assets/tutorial/tutorial_2.png',
-                ),
-                TutorialContainer(
-                  text: t.tutorial_text2,
-                ),
-                const TutorialImage(
-                  asset: 'assets/tutorial/tutorial_3.png',
-                ),
-                TutorialContainer(
-                  text: t.tutorial_text3,
-                ),
+                TutorialContainer(text: t.tutorial_basic),
+                const TutorialImage(asset: 'assets/tutorial/tutorial_1.png'),
+                TutorialContainer(text: t.tutorial_text1),
+                const TutorialImage(asset: 'assets/tutorial/tutorial_2.png'),
+                TutorialContainer(text: t.tutorial_text2),
+                const TutorialImage(asset: 'assets/tutorial/tutorial_3.png'),
+                TutorialContainer(text: t.tutorial_text3),
                 TutorialContainer(
                   text: t.tutorial_text4,
                   leftIcon: Icons.refresh_rounded,
@@ -91,7 +77,7 @@ class TutorialScreen extends StatelessWidget {
                       await _launchVideoTutorial();
                     },
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -108,10 +94,7 @@ class TutorialScreen extends StatelessWidget {
             align: GameButtonAlign.center,
             label: t.start,
             onPressed: () {
-              GameRoute.open(
-                context,
-                Difficulty.beginner,
-              );
+              GameRoute.open(context, Difficulty.beginner);
             },
           ),
         ),

@@ -52,11 +52,10 @@ class _StatsScreenState extends State<StatsScreen> {
                 ),
             ],
           ),
-          body: state.loading
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : LoadedStatsList(boards: state.boards),
+          body:
+              state.loading
+                  ? const Center(child: CircularProgressIndicator())
+                  : LoadedStatsList(boards: state.boards),
         );
       },
     );

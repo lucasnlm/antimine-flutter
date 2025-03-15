@@ -14,8 +14,8 @@ class PreviewBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemesBloc, ThemesState>(
-      buildWhen: (previous, current) =>
-          previous.hasChanges != current.hasChanges,
+      buildWhen:
+          (previous, current) => previous.hasChanges != current.hasChanges,
       builder: (context, state) {
         if (state.hasChanges) {
           return BottomAppBar(

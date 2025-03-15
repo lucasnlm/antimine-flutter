@@ -18,10 +18,7 @@ class ShareComponent extends Component
   @override
   void onNewState(SideEffectEvent? state) {
     if (state is ShareGameImageEffect) {
-      gameRef.shareGame(
-        hash: state.hash,
-        minefieldSize: state.minefieldSize,
-      );
+      gameRef.shareGame(hash: state.hash, minefieldSize: state.minefieldSize);
     }
   }
 }

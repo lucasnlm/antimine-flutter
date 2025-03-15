@@ -21,7 +21,8 @@ class Neighbours extends Equatable {
     this.bottomRightId = noLink,
   });
 
-  List<int> get list => [
+  List<int> get list =>
+      [
         topId,
         bottomId,
         leftId,
@@ -34,15 +35,15 @@ class Neighbours extends Equatable {
 
   @override
   List<Object?> get props => [
-        topId,
-        bottomId,
-        leftId,
-        rightId,
-        topLeftId,
-        topRightId,
-        bottomLeftId,
-        bottomRightId,
-      ];
+    topId,
+    bottomId,
+    leftId,
+    rightId,
+    topLeftId,
+    topRightId,
+    bottomLeftId,
+    bottomRightId,
+  ];
 
   @override
   bool get stringify => true;

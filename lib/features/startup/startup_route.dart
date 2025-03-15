@@ -10,15 +10,16 @@ class StartupRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<StartUpBloc>(
-      create: (_) => StartUpBloc(
-        gameAudioManager: context.read(),
-        dimensionManager: context.read(),
-        settingsManager: context.read(),
-        gameThemeManager: context.read(),
-        globalSettingsBloc: context.read(),
-        inAppUpdateManager: context.read(),
-        saveFileManager: context.read(),
-      ),
+      create:
+          (_) => StartUpBloc(
+            gameAudioManager: context.read(),
+            dimensionManager: context.read(),
+            settingsManager: context.read(),
+            gameThemeManager: context.read(),
+            globalSettingsBloc: context.read(),
+            inAppUpdateManager: context.read(),
+            saveFileManager: context.read(),
+          ),
       child: const StartUpScreen(),
     );
   }

@@ -31,16 +31,16 @@ class StatsBoard extends Equatable {
 
   @override
   List<Object?> get props => [
-        difficulty,
-        hasGamesPlayed,
-        gamesPlayed,
-        totalMines,
-        totalTime,
-        averageTime,
-        bestTime,
-        openedCells,
-        winPercentage,
-        victories,
-        defeats,
-      ];
+    difficulty,
+    hasGamesPlayed,
+    gamesPlayed,
+    totalMines,
+    totalTime,
+    averageTime,
+    bestTime,
+    openedCells,
+    winPercentage,
+    victories,
+    defeats,
+  ];
 }

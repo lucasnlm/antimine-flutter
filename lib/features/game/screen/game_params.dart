@@ -26,13 +26,13 @@ class GameParams extends Equatable {
 
   @override
   List<Object?> get props => [
-        isPreview,
-        difficulty,
-        initialPosition,
-        seed,
-        saveId,
-        restart,
-      ];
+    isPreview,
+    difficulty,
+    initialPosition,
+    seed,
+    saveId,
+    restart,
+  ];
 
   GameParams copyWith({
     bool? isPreview,
@@ -71,14 +71,19 @@ class GameParams extends Equatable {
       return GameParams(
         isPreview: object[_isPreviewKey] ?? false,
         restart: object[_restartKey] ?? false,
-        difficulty: object[_difficultyKey] != null
-            ? Difficulty.values[object[_difficultyKey] as int]
-            : null,
+        difficulty:
+            object[_difficultyKey] != null
+                ? Difficulty.values[object[_difficultyKey] as int]
+                : null,
         seed: object[_seedKey],
         saveId: object[_saveIdKey],
-        initialPosition: object[_initXKey] != null && object[_initYKey] != null
-            ? Vector2(object[_initXKey] as double, object[_initYKey] as double)
-            : null,
+        initialPosition:
+            object[_initXKey] != null && object[_initYKey] != null
+                ? Vector2(
+                  object[_initXKey] as double,
+                  object[_initYKey] as double,
+                )
+                : null,
       );
     } else {
       return const GameParams();

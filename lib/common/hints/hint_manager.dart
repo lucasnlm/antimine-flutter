@@ -4,9 +4,7 @@ import '../../features/game/logic/game_constants.dart';
 import '../settings/settings_repository.dart';
 
 class HintManager {
-  HintManager({
-    required this.repository,
-  });
+  HintManager({required this.repository});
 
   final SettingsRepository repository;
   int? _hintCount;
@@ -21,20 +19,14 @@ class HintManager {
       return Future.value(current);
     }
 
-    return repository.getInt(
-      _hintCountKey,
-      GameConstants.initialHintCount,
-    );
+    return repository.getInt(_hintCountKey, GameConstants.initialHintCount);
   }
 
   Future<void> addHint(int value) async {
     final current = await getAmount();
     final newValue = max(0, current + value);
     return repository
-        .setInt(
-          _hintCountKey,
-          newValue,
-        )
+        .setInt(_hintCountKey, newValue)
         .then((value) => _hintCount = newValue);
   }
 

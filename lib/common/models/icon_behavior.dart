@@ -1,5 +1,1 @@
-enum IconBehavior {
-  none,
-  darkBackground,
-  lightBackground;
-}
+enum IconBehavior { none, darkBackground, lightBackground }

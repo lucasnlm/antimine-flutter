@@ -11,9 +11,7 @@ import 'minefield_slices_merger.dart';
 import 'random_minefield_creator.dart';
 
 class NativeMinefieldCreator extends MinefieldCreator {
-  NativeMinefieldCreator({
-    required this.randomMinefieldCreator,
-  });
+  NativeMinefieldCreator({required this.randomMinefieldCreator});
 
   final RandomMinefieldCreator randomMinefieldCreator;
 

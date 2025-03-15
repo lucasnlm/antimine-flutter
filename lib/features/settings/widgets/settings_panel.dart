@@ -6,11 +6,7 @@ import '../models/settings_item.dart';
 import 'settings_switch_item.dart';
 
 class SettingsPanel extends StatelessWidget {
-  const SettingsPanel({
-    super.key,
-    required this.title,
-    required this.children,
-  });
+  const SettingsPanel({super.key, required this.title, required this.children});
 
   final String title;
   final List<SettingsItem> children;
@@ -19,9 +15,7 @@ class SettingsPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.x32,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.x32),
       child: SizedBox(
         width: double.infinity,
         child: GameContainer(

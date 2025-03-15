@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../foundation/ui/spacing.dart';
 
 class StatsItem extends StatelessWidget {
-  const StatsItem({
-    super.key,
-    required this.name,
-    required this.value,
-  });
+  const StatsItem({super.key, required this.name, required this.value});
 
   final String name;
   final String value;
@@ -25,12 +21,7 @@ class StatsItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(name),
-          Text(
-            value,
-            style: TextStyle(
-              color: colorScheme.primary,
-            ),
-          ),
+          Text(value, style: TextStyle(color: colorScheme.primary)),
         ],
       ),
     );

@@ -12,9 +12,7 @@ class AboutRoute extends StatelessWidget {
     return const AboutScreen();
   }
 
-  static void open(
-    BuildContext context,
-  ) async {
+  static void open(BuildContext context) async {
     await context.push(GameRoutes.about);
   }
 }

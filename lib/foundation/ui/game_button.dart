@@ -55,17 +55,10 @@ class GameButton extends StatelessWidget {
     return Stack(
       alignment: Alignment.centerRight,
       children: [
-        Row(
-          children: [
-            Expanded(child: child),
-          ],
-        ),
+        Row(children: [Expanded(child: child)]),
         if (trailing != null) trailing,
         if (trailingText != null)
-          GameButtonSuffix(
-            trailingText: trailingText,
-            isPrimary: isPrimary,
-          ),
+          GameButtonSuffix(trailingText: trailingText, isPrimary: isPrimary),
       ],
     );
   }

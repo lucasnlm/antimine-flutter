@@ -30,12 +30,7 @@ class Minefield extends Equatable {
     return x >= 0 && x < width && y >= 0 && y < height;
   }
 
-  Minefield copyWith({
-    int? seed,
-    int? width,
-    int? height,
-    int? mines,
-  }) {
+  Minefield copyWith({int? seed, int? width, int? height, int? mines}) {
     return Minefield(
       seed: seed ?? this.seed,
       width: width ?? this.width,
@@ -45,20 +40,10 @@ class Minefield extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        seed,
-        width,
-        height,
-        mines,
-      ];
+  List<Object?> get props => [seed, width, height, mines];
 
   @override
   bool get stringify => true;
 
-  static const empty = Minefield(
-    seed: 0,
-    width: 0,
-    height: 0,
-    mines: 0,
-  );
+  static const empty = Minefield(seed: 0, width: 0, height: 0, mines: 0);
 }

@@ -7,17 +7,8 @@ import 'package:antimine/features/game/screen/game_params.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const area1 = Area(
-    id: 1,
-    x: 2,
-    y: 3,
-  );
-  const minefield = Minefield(
-    width: 10,
-    height: 10,
-    mines: 10,
-    seed: 100,
-  );
+  const area1 = Area(id: 1, x: 2, y: 3);
+  const minefield = Minefield(width: 10, height: 10, mines: 10, seed: 100);
   final gameState = GameState(
     turn: 0,
     minefield: minefield,
@@ -31,19 +22,13 @@ void main() {
   });
 
   test('compare area test different by turn', () {
-    final different = gameState.copyWith(
-      turn: 1,
-    );
+    final different = gameState.copyWith(turn: 1);
     expect(gameState == different, isFalse);
   });
 
   test('compare area test different by area change', () {
     final different = gameState.copyWith(
-      areas: gameState.areas
-          .map(
-            (e) => e.copyWith(mark: Mark.flag),
-          )
-          .toList(),
+      areas: gameState.areas.map((e) => e.copyWith(mark: Mark.flag)).toList(),
     );
     expect(gameState == different, isFalse);
   });

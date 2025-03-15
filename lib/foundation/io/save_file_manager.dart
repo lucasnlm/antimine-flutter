@@ -77,8 +77,9 @@ class SaveFileManager {
 
     final saveDir = await saveDirectory;
     final saveList = saveDir.listSync();
-    saveList
-        .sort((a, b) => a.statSync().modified.compareTo(b.statSync().modified));
+    saveList.sort(
+      (a, b) => a.statSync().modified.compareTo(b.statSync().modified),
+    );
     for (final file in saveList) {
       if (file.path.endsWith('.save')) {
         final saveId = file.path.split('/').last.replaceAll('.save', '');

@@ -13,7 +13,9 @@ class StatsDivider extends StatelessWidget {
       height: Spacing.x8,
       endIndent: Spacing.x8,
       indent: Spacing.x8,
-      color: colorScheme.onSurface.withOpacity(0.1),
+      color: colorScheme.onSurface.withAlpha(_surfaceAlphaColor),
     );
   }
+
+  static final _surfaceAlphaColor = (255.0 * 0.1) as int;
 }

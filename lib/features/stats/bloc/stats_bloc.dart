@@ -12,20 +12,14 @@ import '../models/stats_board.dart';
 import 'stats_state.dart';
 
 class StatsBloc extends Cubit<StatsState> {
-  StatsBloc({
-    required this.staticsFileManager,
-  }) : super(const StatsState(loading: true, boards: []));
+  StatsBloc({required this.staticsFileManager})
+    : super(const StatsState(loading: true, boards: []));
 
   final StatsFileManager staticsFileManager;
 
   void deleteStats() async {
     await staticsFileManager.deleteStats();
-    emit(
-      state.copyWith(
-        loading: false,
-        boards: [],
-      ),
-    );
+    emit(state.copyWith(loading: false, boards: []));
   }
 
   void loadStats() async {
@@ -33,10 +27,7 @@ class StatsBloc extends Cubit<StatsState> {
 
     final boards = <StatsBoard>[
       // All
-      _buildBoard(
-        difficulty: null,
-        stats: stats,
-      ),
+      _buildBoard(difficulty: null, stats: stats),
 
       // Standard
       _buildBoard(
@@ -51,22 +42,13 @@ class StatsBloc extends Cubit<StatsState> {
       ),
 
       // Legend
-      _buildBoard(
-        difficulty: Difficulty.legend,
-        stats: stats.where(isLegend),
-      ),
+      _buildBoard(difficulty: Difficulty.legend, stats: stats.where(isLegend)),
 
       // Master
-      _buildBoard(
-        difficulty: Difficulty.master,
-        stats: stats.where(isMaster),
-      ),
+      _buildBoard(difficulty: Difficulty.master, stats: stats.where(isMaster)),
 
       // Expert
-      _buildBoard(
-        difficulty: Difficulty.expert,
-        stats: stats.where(isExpert),
-      ),
+      _buildBoard(difficulty: Difficulty.expert, stats: stats.where(isExpert)),
 
       // Intermediate
       _buildBoard(
@@ -81,10 +63,7 @@ class StatsBloc extends Cubit<StatsState> {
       ),
 
       // Custom
-      _buildBoard(
-        difficulty: Difficulty.custom,
-        stats: stats.where(isCustom),
-      ),
+      _buildBoard(difficulty: Difficulty.custom, stats: stats.where(isCustom)),
     ];
 
     var filteredBoards = boards.where((e) => e.hasGamesPlayed);
@@ -95,12 +74,7 @@ class StatsBloc extends Cubit<StatsState> {
       filteredBoards = filteredBoards.where((e) => e.difficulty != null);
     }
 
-    emit(
-      state.copyWith(
-        loading: false,
-        boards: filteredBoards.toList(),
-      ),
-    );
+    emit(state.copyWith(loading: false, boards: filteredBoards.toList()));
   }
 
   String _formattedDuration(int? duration) {

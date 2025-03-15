@@ -4,12 +4,7 @@ import 'package:antimine/common/models/minefield.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const minefield = Minefield(
-    width: 10,
-    height: 10,
-    mines: 10,
-    seed: 10,
-  );
+  const minefield = Minefield(width: 10, height: 10, mines: 10, seed: 10);
 
   final areaList = List.generate(
     minefield.size,

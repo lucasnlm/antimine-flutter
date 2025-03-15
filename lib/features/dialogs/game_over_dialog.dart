@@ -47,17 +47,12 @@ class GameOverDialog extends StatelessWidget {
                   bloc.giveUpGame();
                 },
                 onSettings: () {
-                  SettingsRoute.open(
-                    outContext,
-                    backToGame: true,
-                  );
+                  SettingsRoute.open(outContext, backToGame: true);
                   Navigator.of(context).pop();
                 },
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.x8,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.x8),
                 child: Column(
                   children: [
                     Text(
@@ -76,7 +71,9 @@ class GameOverDialog extends StatelessWidget {
                         child: Text(
                           t.generic_game_over,
                           style: theme.textTheme.labelMedium?.copyWith(
-                            color: theme.colorScheme.onSurface.withOpacity(0.7),
+                            color: theme.colorScheme.onSurface.withAlpha(
+                              _titleAlphaColor,
+                            ),
                           ),
                         ),
                       ),
@@ -95,9 +92,7 @@ class GameOverDialog extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-              const SizedBox(
-                height: Spacing.x4,
-              ),
+              const SizedBox(height: Spacing.x4),
               GameButton(
                 isPrimary: !showContinue,
                 label: t.new_game,
@@ -107,10 +102,7 @@ class GameOverDialog extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
               ),
-              if (!showContinue)
-                const SizedBox(
-                  height: Spacing.x4,
-                ),
+              if (!showContinue) const SizedBox(height: Spacing.x4),
               if (!showContinue)
                 GameButton(
                   isPrimary: false,
@@ -127,4 +119,6 @@ class GameOverDialog extends StatelessWidget {
       ],
     );
   }
+
+  static final _titleAlphaColor = (255.0 * 0.7) as int;
 }

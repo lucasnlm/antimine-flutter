@@ -8,10 +8,8 @@ import '../models/history_item.dart';
 import 'history_state.dart';
 
 class HistoryBloc extends Cubit<HistoryState> {
-  HistoryBloc({
-    required this.saveFileManager,
-    required this.hashManager,
-  }) : super(const HistoryState(isLoading: true));
+  HistoryBloc({required this.saveFileManager, required this.hashManager})
+    : super(const HistoryState(isLoading: true));
 
   final SaveFileManager saveFileManager;
   final HashManager hashManager;
@@ -26,13 +24,7 @@ class HistoryBloc extends Cubit<HistoryState> {
         final hash = _hashFromSave(loaded);
         if (hash != null) {
           final list = items[hash.hash] ?? [];
-          items[hash.hash] = [
-            ...list,
-            HistoryItem(
-              save: loaded,
-              hash: hash,
-            ),
-          ];
+          items[hash.hash] = [...list, HistoryItem(save: loaded, hash: hash)];
         }
       }
     }
@@ -40,9 +32,7 @@ class HistoryBloc extends Cubit<HistoryState> {
     for (var item in items.keys) {
       final games = items[item];
       if (games != null && games.length > 1) {
-        games.sort(
-          (a, b) => b.save.startDate - a.save.startDate,
-        );
+        games.sort((a, b) => b.save.startDate - a.save.startDate);
         items[item] = [games.first];
       }
     }
@@ -50,16 +40,9 @@ class HistoryBloc extends Cubit<HistoryState> {
     final itemsList = items.values.expand((e) => e).toList();
 
     final sortedList = itemsList.toList();
-    sortedList.sort(
-      (a, b) => b.save.startDate - a.save.startDate,
-    );
+    sortedList.sort((a, b) => b.save.startDate - a.save.startDate);
 
-    emit(
-      HistoryState(
-        isLoading: false,
-        historyItems: sortedList,
-      ),
-    );
+    emit(HistoryState(isLoading: false, historyItems: sortedList));
   }
 
   GameHash? _hashFromSave(SaveGame save) {
@@ -68,9 +51,7 @@ class HistoryBloc extends Cubit<HistoryState> {
       return null;
     }
 
-    final minefield = save.minefield.copyWith(
-      seed: save.seed,
-    );
+    final minefield = save.minefield.copyWith(seed: save.seed);
 
     final area =
         save.areas.where((e) => e.id == id).firstOrNull ?? save.areas[id];

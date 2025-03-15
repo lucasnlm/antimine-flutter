@@ -31,9 +31,7 @@ void main() {
 
   test('read long', () {
     // Given
-    final fileByteReader = FileByteReader(
-      Uint8List.fromList(byteLong),
-    );
+    final fileByteReader = FileByteReader(Uint8List.fromList(byteLong));
 
     // When
     final result = fileByteReader.readLong();
@@ -56,9 +54,7 @@ void main() {
 
   test('read int', () {
     // Given
-    final fileByteReader = FileByteReader(
-      Uint8List.fromList(byteInt),
-    );
+    final fileByteReader = FileByteReader(Uint8List.fromList(byteInt));
 
     // When
     final result = fileByteReader.readInt();
@@ -93,9 +89,7 @@ void main() {
 
   test('read bool true', () {
     // Given
-    final fileByteReader = FileByteReader(
-      Uint8List.fromList(byteBool1),
-    );
+    final fileByteReader = FileByteReader(Uint8List.fromList(byteBool1));
 
     // When
     final result = fileByteReader.readBool();
@@ -106,9 +100,7 @@ void main() {
 
   test('read bool false', () {
     // Given
-    final fileByteReader = FileByteReader(
-      Uint8List.fromList(byteBool2),
-    );
+    final fileByteReader = FileByteReader(Uint8List.fromList(byteBool2));
 
     // When
     final result = fileByteReader.readBool();

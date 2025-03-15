@@ -16,16 +16,16 @@ class ThemesBloc extends Cubit<ThemesState> {
     required this.globalSettingsBloc,
     required SettingsManager settingsManager,
   }) : super(
-          ThemesState(
-            backgroundIndex: gameThemeManager.backgroundId,
-            initialBackgroundIndex: gameThemeManager.backgroundId,
-            primaryColorIndex: gameThemeManager.primaryColorId,
-            initialPrimaryColorIndex: gameThemeManager.primaryColorId,
-            skinIndex: gameThemeManager.skinId,
-            initialSkinIndex: gameThemeManager.skinId,
-            colorScheme: gameThemeManager.colorScheme,
-          ),
-        );
+         ThemesState(
+           backgroundIndex: gameThemeManager.backgroundId,
+           initialBackgroundIndex: gameThemeManager.backgroundId,
+           primaryColorIndex: gameThemeManager.primaryColorId,
+           initialPrimaryColorIndex: gameThemeManager.primaryColorId,
+           skinIndex: gameThemeManager.skinId,
+           initialSkinIndex: gameThemeManager.skinId,
+           colorScheme: gameThemeManager.colorScheme,
+         ),
+       );
 
   final GameThemeManager gameThemeManager;
   final Brightness platformBrightness;
@@ -33,11 +33,7 @@ class ThemesBloc extends Cubit<ThemesState> {
 
   void changeSkin(int skinId) {
     gameThemeManager.setSkin(skinId);
-    emit(
-      state.copyWith(
-        skinIndex: skinId,
-      ),
-    );
+    emit(state.copyWith(skinIndex: skinId));
   }
 
   void undoChanges() {
@@ -47,10 +43,7 @@ class ThemesBloc extends Cubit<ThemesState> {
     );
   }
 
-  void change({
-    GamePrimaryColor? primary,
-    GameBackgroundColor? background,
-  }) {
+  void change({GamePrimaryColor? primary, GameBackgroundColor? background}) {
     final selectedPrimary =
         primary ?? GameThemes.primaryOfId(state.primaryColorIndex);
     final selectedBackground =
@@ -61,9 +54,7 @@ class ThemesBloc extends Cubit<ThemesState> {
       primaryColor: selectedPrimary,
     );
 
-    globalSettingsBloc.changeTheme(
-      gameThemeManager.colorScheme,
-    );
+    globalSettingsBloc.changeTheme(gameThemeManager.colorScheme);
 
     emit(
       state.copyWith(

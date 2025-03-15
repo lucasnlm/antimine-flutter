@@ -10,8 +10,9 @@ class UndoChangesAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemesBloc, ThemesState>(
-      buildWhen: (previous, current) =>
-          previous.hasColorChanges != current.hasColorChanges,
+      buildWhen:
+          (previous, current) =>
+              previous.hasColorChanges != current.hasColorChanges,
       builder: (context, state) {
         if (state.hasColorChanges) {
           return IconButton(

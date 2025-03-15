@@ -8,9 +8,7 @@ import 'settings_keys.dart';
 import 'settings_repository.dart';
 
 class SettingsManager {
-  SettingsManager({
-    required this.repository,
-  });
+  SettingsManager({required this.repository});
 
   final SettingsRepository repository;
 
@@ -183,10 +181,7 @@ class SettingsManager {
   }
 
   void saveCameraState(Vector2 position, double zoom) async {
-    _cache = _cache?.copyWith(
-      cameraPosition: position,
-      cameraZoom: zoom,
-    );
+    _cache = _cache?.copyWith(cameraPosition: position, cameraZoom: zoom);
 
     if (_cache?.cameraPosition != position) {
       await repository.setDouble(SettingsKeys.cameraX, position.x);
@@ -232,10 +227,7 @@ class SettingsManager {
         SettingsKeys.darkenNumbers,
         initial.darkenNumbers,
       ),
-      music: await repository.getBool(
-        SettingsKeys.music,
-        initial.music,
-      ),
+      music: await repository.getBool(SettingsKeys.music, initial.music),
       soundEffects: await repository.getBool(
         SettingsKeys.soundEffects,
         initial.soundEffects,
@@ -260,10 +252,7 @@ class SettingsManager {
         SettingsKeys.allowTapToFlagNeighbours,
         initial.tapToFlagNeighbours,
       ),
-      hints: await repository.getBool(
-        SettingsKeys.useHint,
-        initial.hints,
-      ),
+      hints: await repository.getBool(SettingsKeys.useHint, initial.hints),
       showClock: await repository.getBool(
         SettingsKeys.showClock,
         initial.showClock,
@@ -301,15 +290,9 @@ class SettingsManager {
         SettingsKeys.customMines,
         initial.customMines,
       ),
-      locale: await repository.optString(
-        SettingsKeys.locale,
-      ),
-      hashBase: await repository.optString(
-        SettingsKeys.hashBase,
-      ),
-      hashSeed: await repository.optString(
-        SettingsKeys.hashSeed,
-      ),
+      locale: await repository.optString(SettingsKeys.locale),
+      hashBase: await repository.optString(SettingsKeys.hashBase),
+      hashSeed: await repository.optString(SettingsKeys.hashSeed),
       progressiveValue: await repository.getInt(
         SettingsKeys.progressiveValue,
         initial.progressiveValue,
@@ -319,16 +302,10 @@ class SettingsManager {
         initial.winsCount,
       ),
       cameraPosition: _vector2Of(
-        await repository.optDouble(
-          SettingsKeys.cameraX,
-        ),
-        await repository.optDouble(
-          SettingsKeys.cameraY,
-        ),
+        await repository.optDouble(SettingsKeys.cameraX),
+        await repository.optDouble(SettingsKeys.cameraY),
       ),
-      cameraZoom: await repository.optDouble(
-        SettingsKeys.cameraZoom,
-      ),
+      cameraZoom: await repository.optDouble(SettingsKeys.cameraZoom),
       showTutorialButton: await repository.getBool(
         SettingsKeys.tutorialButton,
         initial.showTutorialButton,

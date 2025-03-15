@@ -20,12 +20,7 @@ class StartUpBloc extends Cubit<StartupState> {
     required this.gameThemeManager,
     required this.inAppUpdateManager,
     required this.saveFileManager,
-  }) : super(
-          const StartupState(
-            initialized: false,
-            openGameDirectly: false,
-          ),
-        );
+  }) : super(const StartupState(initialized: false, openGameDirectly: false));
 
   final GameAudioManager gameAudioManager;
   final DimensionManager dimensionManager;
@@ -35,9 +30,7 @@ class StartUpBloc extends Cubit<StartupState> {
   final InAppUpdateManager inAppUpdateManager;
   final SaveFileManager saveFileManager;
 
-  void initializeGame({
-    required Size screenSize,
-  }) async {
+  void initializeGame({required Size screenSize}) async {
     await settingsManager.init();
     await settingsManager.reload();
 
@@ -65,13 +58,5 @@ class StartUpBloc extends Cubit<StartupState> {
     debugPrint('> longTapDelay initial = ${TapConfig.longTapDelay}');
 
     inAppUpdateManager.init();
-  }
-
-  void _safePluginCall(Function() call) {
-    try {
-      call();
-    } catch (e) {
-      debugPrint('>> Error calling plugin: $e');
-    }
   }
 }

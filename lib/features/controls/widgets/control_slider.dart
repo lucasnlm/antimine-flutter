@@ -7,10 +7,10 @@ class ControlSlider extends StatefulWidget {
     required this.maxValue,
     required this.minValue,
     this.onChanged,
-  })  : assert(initialValue >= minValue),
-        assert(initialValue <= maxValue),
-        assert(maxValue > minValue),
-        assert(minValue < maxValue);
+  }) : assert(initialValue >= minValue),
+       assert(initialValue <= maxValue),
+       assert(maxValue > minValue),
+       assert(minValue < maxValue);
 
   final int initialValue;
   final int maxValue;

@@ -11,9 +11,7 @@ import '../bloc/themes_state.dart';
 import 'skin_box.dart';
 
 class SkinsPanel extends StatelessWidget {
-  const SkinsPanel({
-    super.key,
-  });
+  const SkinsPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,24 +28,25 @@ class SkinsPanel extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: Skins.all
-                        .map(
-                          (e) => SkinBox(
-                            skin: e,
-                            isPremium: e.isPremium,
-                            gameTheme: gameTheme,
-                            selected: e.id == state.skinIndex,
-                            onColor: gameTheme.iconColor,
-                          ),
-                        )
-                        .skip(i * itemsPerLine)
-                        .take(itemsPerLine)
-                        .toList(),
+                    children:
+                        Skins.all
+                            .map(
+                              (e) => SkinBox(
+                                skin: e,
+                                isPremium: e.isPremium,
+                                gameTheme: gameTheme,
+                                selected: e.id == state.skinIndex,
+                                onColor: gameTheme.iconColor,
+                              ),
+                            )
+                            .skip(i * itemsPerLine)
+                            .take(itemsPerLine)
+                            .toList(),
                   ),
               ],
             );
           },
-        )
+        ),
       ],
     );
   }

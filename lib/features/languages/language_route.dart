@@ -14,19 +14,16 @@ class LanguageRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LanguageBloc>(
-      create: (context) => LanguageBloc(
-        settingsManager: context.read<SettingsManager>(),
-        globalBloc: context.read<GlobalSettingsBloc>(),
-      )..load(),
+      create:
+          (context) => LanguageBloc(
+            settingsManager: context.read<SettingsManager>(),
+            globalBloc: context.read<GlobalSettingsBloc>(),
+          )..load(),
       child: const LanguageScreen(),
     );
   }
 
-  static void open(
-    BuildContext context,
-  ) async {
-    await context.push(
-      GameRoutes.languages,
-    );
+  static void open(BuildContext context) async {
+    await context.push(GameRoutes.languages);
   }
 }

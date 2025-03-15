@@ -29,9 +29,7 @@ class GameOutlinedButton extends StatelessWidget {
     const padding = Spacing.x8;
 
     const shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(padding),
-      ),
+      borderRadius: BorderRadius.all(Radius.circular(padding)),
     );
 
     if (icon != null) {
@@ -43,16 +41,13 @@ class GameOutlinedButton extends StatelessWidget {
           side: BorderSide.none,
           visualDensity:
               isDense ? VisualDensity.compact : VisualDensity.standard,
-          alignment: align == GameButtonAlign.start
-              ? Alignment.centerLeft
-              : Alignment.center,
+          alignment:
+              align == GameButtonAlign.start
+                  ? Alignment.centerLeft
+                  : Alignment.center,
         ),
         onPressed: onPressed,
-        icon: Icon(
-          icon,
-          color: colorScheme.onSurface,
-          size: Spacing.x18,
-        ),
+        icon: Icon(icon, color: colorScheme.onSurface, size: Spacing.x18),
         label: Text(
           label.toUpperCase(),
           style: theme.textTheme.labelMedium?.copyWith(
@@ -70,9 +65,10 @@ class GameOutlinedButton extends StatelessWidget {
           side: BorderSide.none,
           visualDensity:
               isDense ? VisualDensity.compact : VisualDensity.standard,
-          alignment: align == GameButtonAlign.start
-              ? Alignment.centerLeft
-              : Alignment.center,
+          alignment:
+              align == GameButtonAlign.start
+                  ? Alignment.centerLeft
+                  : Alignment.center,
         ),
         onPressed: onPressed,
         child: Text(

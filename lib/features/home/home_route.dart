@@ -17,22 +17,19 @@ class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeBloc(
-        minefieldManager: context.read<MinefieldManager>(),
-        sideEffectBloc: context.read<SideEffectBloc>(),
-        saveFileManager: context.read<SaveFileManager>(),
-        settingsManager: context.read<SettingsManager>(),
-        inAppUpdateManager: context.read<InAppUpdateManager>(),
-      )..init(),
+      create:
+          (context) => HomeBloc(
+            minefieldManager: context.read<MinefieldManager>(),
+            sideEffectBloc: context.read<SideEffectBloc>(),
+            saveFileManager: context.read<SaveFileManager>(),
+            settingsManager: context.read<SettingsManager>(),
+            inAppUpdateManager: context.read<InAppUpdateManager>(),
+          )..init(),
       child: const HomeScreen(),
     );
   }
 
-  static void open(
-    BuildContext context,
-  ) async {
-    context.pushReplacement(
-      GameRoutes.home,
-    );
+  static void open(BuildContext context) async {
+    context.pushReplacement(GameRoutes.home);
   }
 }

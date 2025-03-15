@@ -26,12 +26,7 @@ void main() {
     seed: 100,
     startDate: 12345,
     duration: 8765431,
-    minefield: const Minefield(
-      seed: 4,
-      width: 10,
-      height: 10,
-      mines: 9,
-    ),
+    minefield: const Minefield(seed: 4, width: 10, height: 10, mines: 9),
     difficulty: Difficulty.fixedSize,
     firstOpen: FirstOpen.unknown,
     status: GameStatus.inProgress,
@@ -64,9 +59,7 @@ void main() {
   });
 
   test('load save invalid', () async {
-    final save = await saveFileManager.loadSave(
-      'invalid',
-    );
+    final save = await saveFileManager.loadSave('invalid');
     expect(save, isNull);
   });
 
@@ -141,21 +134,18 @@ void main() {
     // Then
     final list = await saveFileManager.loadSaveList();
     expect(list.saves.length, 10);
-    expect(
-      list.saves,
-      {
-        'save_${savesN - 10}',
-        'save_${savesN - 9}',
-        'save_${savesN - 8}',
-        'save_${savesN - 7}',
-        'save_${savesN - 6}',
-        'save_${savesN - 5}',
-        'save_${savesN - 4}',
-        'save_${savesN - 3}',
-        'save_${savesN - 2}',
-        'save_${savesN - 1}',
-      },
-    );
+    expect(list.saves, {
+      'save_${savesN - 10}',
+      'save_${savesN - 9}',
+      'save_${savesN - 8}',
+      'save_${savesN - 7}',
+      'save_${savesN - 6}',
+      'save_${savesN - 5}',
+      'save_${savesN - 4}',
+      'save_${savesN - 3}',
+      'save_${savesN - 2}',
+      'save_${savesN - 1}',
+    });
   });
 
   test('generateId returns valid UUID', () {

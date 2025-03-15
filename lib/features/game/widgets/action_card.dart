@@ -19,30 +19,29 @@ class ActionCard extends StatelessWidget {
     final colorScheme = theme.colorScheme;
     return Container(
       padding: const EdgeInsets.all(Spacing.x4),
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
-      ),
+      decoration: const BoxDecoration(color: Colors.transparent),
       child: Card(
-        margin: isPortrait
-            ? const EdgeInsets.only(bottom: Spacing.x8)
-            : const EdgeInsets.only(right: Spacing.x8),
-        color: colorScheme.surface.withOpacity(0.5),
+        margin:
+            isPortrait
+                ? const EdgeInsets.only(bottom: Spacing.x8)
+                : const EdgeInsets.only(right: Spacing.x8),
+        color: colorScheme.surface.withAlpha(_actionSurfaceAlpha),
         elevation: 0.0,
         child: Container(
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
-            color: colorScheme.onSurface.withOpacity(0.1),
+            color: colorScheme.onSurface.withAlpha(_actionBorderAlpha),
             borderRadius: BorderRadius.circular(Spacing.x8),
           ),
           child: Padding(
             padding: const EdgeInsets.all(Spacing.x8),
-            child: ActionList(
-              isPortrait: isPortrait,
-              children: children,
-            ),
+            child: ActionList(isPortrait: isPortrait, children: children),
           ),
         ),
       ),
     );
   }
+
+  static final _actionBorderAlpha = (255.0 * 0.1) as int;
+  static final _actionSurfaceAlpha = (255.0 * 0.5) as int;
 }

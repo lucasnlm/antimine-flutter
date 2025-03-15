@@ -42,13 +42,9 @@ class _SettingsSwitchItemState extends State<SettingsSwitchItem> {
     return SwitchListTile(
       title: Text(widget.title),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(Spacing.x8),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(Spacing.x8)),
       ),
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: Spacing.x16,
-      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: Spacing.x16),
       dense: true,
       enableFeedback: false,
       value: _value,

@@ -7,9 +7,8 @@ import '../../common/models/stats.dart';
 import 'stats_file_serializer.dart';
 
 class StatsFileManager {
-  StatsFileManager({
-    Future<Directory>? statsDirectory,
-  }) : statsDirectory = statsDirectory ?? _getStatsDirectory();
+  StatsFileManager({Future<Directory>? statsDirectory})
+    : statsDirectory = statsDirectory ?? _getStatsDirectory();
 
   final Future<Directory> statsDirectory;
 

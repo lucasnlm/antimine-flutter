@@ -13,12 +13,7 @@ class FileByteReader {
   int readInt() {
     final current = _index;
     _index += _intSize;
-    return bytes
-        .getRange(
-          current,
-          current + _intSize,
-        )
-        .fold<int>(0, _foldBytes);
+    return bytes.getRange(current, current + _intSize).fold<int>(0, _foldBytes);
   }
 
   bool readBool() {
@@ -29,10 +24,7 @@ class FileByteReader {
     final current = _index;
     _index += _longSize;
     return bytes
-        .getRange(
-          current,
-          current + _longSize,
-        )
+        .getRange(current, current + _longSize)
         .fold<int>(0, _foldBytes);
   }
 

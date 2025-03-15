@@ -41,28 +41,17 @@ class IconsLayerComponent extends CommonLayerComponent {
       if (area.mark.isNotNone) {
         switch (area.mark) {
           case Mark.flag:
-            batchList.add(
-              flagIcon,
-              ComponentConstants.iconPadding,
-            );
+            batchList.add(flagIcon, ComponentConstants.iconPadding);
             break;
           case Mark.question:
-            batchList.add(
-              questionIcon,
-              ComponentConstants.iconPadding ~/ 2,
-            );
+            batchList.add(questionIcon, ComponentConstants.iconPadding ~/ 2);
             break;
           default:
             break;
         }
       } else if (area.revealed) {
-        batchList.color = color.withOpacity(
-          GameConstants.revealedOpacity,
-        );
-        batchList.add(
-          mineIcon,
-          ComponentConstants.iconPadding ~/ 2,
-        );
+        batchList.color = color.withAlpha(GameConstants.revealedOpacity);
+        batchList.add(mineIcon, ComponentConstants.iconPadding ~/ 2);
       }
     }
 

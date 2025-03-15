@@ -7,9 +7,7 @@ import 'minefield_creator.dart';
 import 'randomness_manager.dart';
 
 class RandomMinefieldCreator extends MinefieldCreator {
-  RandomMinefieldCreator({
-    required this.randomnessManager,
-  });
+  RandomMinefieldCreator({required this.randomnessManager});
 
   final RandomnessManager randomnessManager;
 
@@ -49,12 +47,7 @@ class RandomMinefieldCreator extends MinefieldCreator {
   }
 
   /// Plant mines in the minefield.
-  void _plantMines(
-    List<Area> map,
-    Minefield minefield,
-    int x,
-    int y,
-  ) async {
+  void _plantMines(List<Area> map, Minefield minefield, int x, int y) async {
     const safeAreaSize = GameConstants.minSafeArea;
     var remainingMines = minefield.mines;
     var remainingAreas = minefield.size - safeAreaSize;

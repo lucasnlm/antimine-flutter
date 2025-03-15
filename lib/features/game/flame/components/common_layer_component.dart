@@ -99,23 +99,13 @@ class CommonLayerComponent extends ShapeComponent
   Rect verticalHalfRectOf(int x, int y) {
     const size = ComponentConstants.spriteSize;
     const subSize = size * 0.5;
-    return Rect.fromLTWH(
-      x * size,
-      y * size + 0.25 * size,
-      size,
-      subSize,
-    );
+    return Rect.fromLTWH(x * size, y * size + 0.25 * size, size, subSize);
   }
 
   Rect horizontalHalfRectOf(int x, int y) {
     const size = ComponentConstants.spriteSize;
     const subSize = size * 0.5;
-    return Rect.fromLTWH(
-      x * size + 0.25 * size,
-      y * size,
-      subSize,
-      size,
-    );
+    return Rect.fromLTWH(x * size + 0.25 * size, y * size, subSize, size);
   }
 
   void _refreshFilterQuality() {

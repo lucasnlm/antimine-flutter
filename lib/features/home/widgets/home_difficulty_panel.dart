@@ -10,9 +10,7 @@ import '../../custom/shared_game_dialog.dart';
 import '../bloc/home_bloc.dart';
 
 class HomeDifficultyPanel extends StatelessWidget {
-  const HomeDifficultyPanel({
-    super.key,
-  });
+  const HomeDifficultyPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +19,14 @@ class HomeDifficultyPanel extends StatelessWidget {
     final bloc = context.read<HomeBloc>();
     final state = bloc.state;
     return Padding(
-      padding: const EdgeInsets.only(
-        top: Spacing.x8,
-      ),
+      padding: const EdgeInsets.only(top: Spacing.x8),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(
-            color: colorScheme.onSurface,
-            width: Spacing.x2,
-          ),
+          border: Border.all(color: colorScheme.onSurface, width: Spacing.x2),
           borderRadius: BorderRadius.circular(Spacing.x8),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spacing.x2,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.x2),
           child: Column(
             children: [
               GameButton(
@@ -56,10 +47,8 @@ class HomeDifficultyPanel extends StatelessWidget {
               ),
               Container(
                 height: Spacing.x2,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.x24,
-                ),
-                color: colorScheme.onSurface.withOpacity(0.25),
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.x24),
+                color: colorScheme.onSurface.withAlpha(_surfaceAlphaColor),
               ),
               ...{
                 MapEntry(t.beginner, Difficulty.beginner),
@@ -79,10 +68,8 @@ class HomeDifficultyPanel extends StatelessWidget {
               }),
               Container(
                 height: Spacing.x2,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.x24,
-                ),
-                color: colorScheme.onSurface.withOpacity(0.25),
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.x24),
+                color: colorScheme.onSurface.withAlpha(_surfaceAlphaColor),
               ),
               GameButton(
                 icon: Icons.construction,
@@ -90,10 +77,11 @@ class HomeDifficultyPanel extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (_) => CustomGameDialog(
-                      context: context,
-                      settingsManager: bloc.settingsManager,
-                    ),
+                    builder:
+                        (_) => CustomGameDialog(
+                          context: context,
+                          settingsManager: bloc.settingsManager,
+                        ),
                   );
                 },
                 label: t.custom,
@@ -104,11 +92,12 @@ class HomeDifficultyPanel extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (_) => SharedGameDialog(
-                      context: context,
-                      settingsManager: bloc.settingsManager,
-                      minefieldManager: bloc.minefieldManager,
-                    ),
+                    builder:
+                        (_) => SharedGameDialog(
+                          context: context,
+                          settingsManager: bloc.settingsManager,
+                          minefieldManager: bloc.minefieldManager,
+                        ),
                   );
                 },
                 label: t.shared_game,
@@ -119,4 +108,6 @@ class HomeDifficultyPanel extends StatelessWidget {
       ),
     );
   }
+
+  static final _surfaceAlphaColor = (255.0 * 0.25) as int;
 }

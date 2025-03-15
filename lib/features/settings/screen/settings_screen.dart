@@ -9,10 +9,7 @@ import '../widgets/settings_list.dart';
 import 'settings_params.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({
-    super.key,
-    required this.params,
-  });
+  const SettingsScreen({super.key, required this.params});
 
   final SettingsParams params;
 
@@ -24,9 +21,7 @@ class SettingsScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(t.settings),
-            leading: BackButton(
-              onPressed: () => context.pop(),
-            ),
+            leading: BackButton(onPressed: () => context.pop()),
             actions: [
               if (state.hasChanged)
                 IconButton(
@@ -37,9 +32,10 @@ class SettingsScreen extends StatelessWidget {
                 ),
             ],
           ),
-          body: settings == null
-              ? const SizedBox.shrink()
-              : SettingsList(settings: settings),
+          body:
+              settings == null
+                  ? const SizedBox.shrink()
+                  : SettingsList(settings: settings),
         );
       },
     );

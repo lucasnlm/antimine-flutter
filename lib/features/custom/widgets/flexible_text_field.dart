@@ -90,9 +90,7 @@ class _FlexibleTextFieldState extends State<FlexibleTextField> {
       child: TextField(
         controller: widget.controller,
         enableSuggestions: false,
-        inputFormatters: [
-          FilteringTextInputFormatter.digitsOnly,
-        ],
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         autofocus: widget.autofocus,
         keyboardType: TextInputType.number,
         textInputAction: widget.action,

@@ -103,10 +103,7 @@ class _CustomGameDialogState extends State<CustomGameDialog> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: Spacing.x8,
                       ),
-                      child: Text(
-                        '⨯',
-                        style: theme.textTheme.titleLarge,
-                      ),
+                      child: Text('⨯', style: theme.textTheme.titleLarge),
                     ),
                     FlexibleTextField(
                       controller: _heightController,
@@ -132,10 +129,7 @@ class _CustomGameDialogState extends State<CustomGameDialog> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: Spacing.x8,
                       ),
-                      child: Text(
-                        ' ',
-                        style: theme.textTheme.titleLarge,
-                      ),
+                      child: Text(' ', style: theme.textTheme.titleLarge),
                     ),
                     FlexibleTextField(
                       controller: _seedController,
@@ -151,18 +145,19 @@ class _CustomGameDialogState extends State<CustomGameDialog> {
                   isPrimary: true,
                   label: t.start,
                   align: GameButtonAlign.center,
-                  onPressed: state.isValid
-                      ? () async {
-                          bloc.saveCustom();
-                          context.pop();
+                  onPressed:
+                      state.isValid
+                          ? () async {
+                            bloc.saveCustom();
+                            context.pop();
 
-                          GameRoute.open(
-                            widget.context,
-                            Difficulty.custom,
-                            state.seed,
-                          );
-                        }
-                      : null,
+                            GameRoute.open(
+                              widget.context,
+                              Difficulty.custom,
+                              state.seed,
+                            );
+                          }
+                          : null,
                 ),
               ],
             );

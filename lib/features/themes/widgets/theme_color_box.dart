@@ -26,18 +26,17 @@ class ThemeColorBox extends StatelessWidget {
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: Spacing.x4,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: Spacing.x4),
         child: FilledButton(
           onPressed: onTap,
           style: FilledButton.styleFrom(
             padding: EdgeInsets.zero,
             elevation: 0.0,
             side: BorderSide(
-              color: isSelected
-                  ? theme.colorScheme.primary
-                  : theme.colorScheme.primary.withAlpha(0),
+              color:
+                  isSelected
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.primary.withAlpha(0),
               width: Spacing.x4,
             ),
             shape: RoundedRectangleBorder(
@@ -47,14 +46,10 @@ class ThemeColorBox extends StatelessWidget {
           ),
           child: SizedBox(
             height: Spacing.x48,
-            child: isSelected
-                ? Center(
-                    child: Icon(
-                      Icons.check,
-                      color: onColor,
-                    ),
-                  )
-                : Container(),
+            child:
+                isSelected
+                    ? Center(child: Icon(Icons.check, color: onColor))
+                    : Container(),
           ),
         ),
       ),

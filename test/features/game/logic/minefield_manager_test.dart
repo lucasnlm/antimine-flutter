@@ -10,12 +10,8 @@ import '../../../helpers/mocks/test_settings_repository.dart';
 
 void main() {
   final testRepository = TestSettingsRepository();
-  final dimensionManager = DimensionManager(
-    isMobile: true,
-  );
-  final settingsManager = SettingsManager(
-    repository: testRepository,
-  );
+  final dimensionManager = DimensionManager(isMobile: true);
+  final settingsManager = SettingsManager(repository: testRepository);
   final minefieldManager = MinefieldManager(
     dimensionManager: dimensionManager,
     settingsManager: settingsManager,
@@ -119,23 +115,21 @@ void main() {
       Difficulty.legend,
     ];
 
-    final proportions = difficulties.map((difficulty) {
-      final minefield = minefieldManager.createMinefieldByDifficulty(
-        difficulty: difficulty,
-        seed: seed,
-      );
-      return minefield.mines / (minefield.width * minefield.height);
-    }).toList();
+    final proportions =
+        difficulties.map((difficulty) {
+          final minefield = minefieldManager.createMinefieldByDifficulty(
+            difficulty: difficulty,
+            seed: seed,
+          );
+          return minefield.mines / (minefield.width * minefield.height);
+        }).toList();
 
     var current = 0.0;
-    final result = proportions.fold(
-      true,
-      (previousValue, element) {
-        final lastElement = current;
-        current = element;
-        return previousValue && (lastElement < element);
-      },
-    );
+    final result = proportions.fold(true, (previousValue, element) {
+      final lastElement = current;
+      current = element;
+      return previousValue && (lastElement < element);
+    });
 
     expect(result, isTrue);
   });

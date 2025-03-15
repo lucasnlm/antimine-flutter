@@ -52,17 +52,12 @@ class _GameTimerState extends State<GameTimer> {
           return Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.timer_rounded,
-                size: Spacing.x16,
-              ),
+              const Icon(Icons.timer_rounded, size: Spacing.x16),
               const SizedBox(width: Spacing.x4),
               SizedBox(
                 width: Spacing.x48,
                 child: Text(
-                  Duration(
-                    milliseconds: state.duration,
-                  ).toFormattedString(),
+                  Duration(milliseconds: state.duration).toFormattedString(),
                   maxLines: 1,
                   style: const TextStyle(
                     fontSize: Spacing.smallText,

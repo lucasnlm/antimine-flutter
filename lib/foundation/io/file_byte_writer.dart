@@ -39,10 +39,7 @@ class FileByteWriter {
   }
 
   Iterable<int> _shortToBytes(int value) {
-    return <int>[
-      (value >> 8) & _fullByte,
-      (value >> 0) & _fullByte,
-    ];
+    return <int>[(value >> 8) & _fullByte, (value >> 0) & _fullByte];
   }
 
   Iterable<int> _longToBytes(int value) {

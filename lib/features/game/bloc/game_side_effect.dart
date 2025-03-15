@@ -9,10 +9,7 @@ class GameOverEffect extends SideEffectEvent {}
 class ShareGameRequestEffect extends SideEffectEvent {}
 
 class ShareGameImageEffect extends SideEffectEvent {
-  ShareGameImageEffect({
-    required this.hash,
-    required this.minefieldSize,
-  });
+  ShareGameImageEffect({required this.hash, required this.minefieldSize});
 
   final String hash;
   final String minefieldSize;

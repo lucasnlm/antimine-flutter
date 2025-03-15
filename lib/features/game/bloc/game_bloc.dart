@@ -57,12 +57,7 @@ class GameBloc extends Cubit<GameState> {
     required this.settingsManager,
     required this.inAppReviewManager,
     required GameParams params,
-  }) : super(
-          GameState(
-            settings: settings,
-            params: params,
-          ),
-        );
+  }) : super(GameState(settings: settings, params: params));
 
   final GameSettings settings;
   final MinefieldHandler minefieldHandler;
@@ -83,18 +78,14 @@ class GameBloc extends Cubit<GameState> {
   final InAppReviewManager inAppReviewManager;
 
   void loadPreviewGame(String? saveId) async {
-    final save = saveId != null
-        ? await saveFileManager.loadSave(saveId)
-        : await saveFileManager.loadPreviewSave();
+    final save =
+        saveId != null
+            ? await saveFileManager.loadSave(saveId)
+            : await saveFileManager.loadPreviewSave();
     if (save != null) {
       final params = state.params;
       final savedState = await _saveToState(save);
-      emit(
-        savedState.copyWith(
-          isPreview: true,
-          params: params,
-        ),
-      );
+      emit(savedState.copyWith(isPreview: true, params: params));
     }
   }
 
@@ -118,10 +109,7 @@ class GameBloc extends Cubit<GameState> {
         newGame(
           difficulty: save.difficulty,
           seed: save.seed,
-          initialPosition: Vector2(
-            initialX.toDouble(),
-            initialY.toDouble(),
-          ),
+          initialPosition: Vector2(initialX.toDouble(), initialY.toDouble()),
         );
       } else {
         newGame(difficulty: Difficulty.standard);
@@ -168,10 +156,7 @@ class GameBloc extends Cubit<GameState> {
 
     emit(state.copyWith(loading: true));
 
-    await minefieldHandler.createEmpty(
-      minefield,
-      theme.connectAreas,
-    );
+    await minefieldHandler.createEmpty(minefield, theme.connectAreas);
 
     final params = GameParams(
       difficulty: difficulty,
@@ -254,10 +239,7 @@ class GameBloc extends Cubit<GameState> {
       await hintManager.consumeHint();
       final now = dateTimeProvider.nowInMilliseconds();
       audioManager.playRevealMine();
-      _updateState(
-        advanceTurn: true,
-        lastHintUsed: now,
-      );
+      _updateState(advanceTurn: true, lastHintUsed: now);
     } else {
       sideEffectBloc.emit(NoMoreHintsEffect());
     }
@@ -328,10 +310,7 @@ class GameBloc extends Cubit<GameState> {
   Future<void> sharePicture(ByteData byteData) async {
     final now = dateTimeProvider.now();
     bool? shareResult;
-    final result = await shareImageManager.saveImage(
-      byteData,
-      now.toString(),
-    );
+    final result = await shareImageManager.saveImage(byteData, now.toString());
     if (result != null) {
       widgets.debugPrint("Image saved at $result");
       try {
@@ -369,10 +348,7 @@ class GameBloc extends Cubit<GameState> {
     }
   }
 
-  void _handleInput(
-    InputType inputType,
-    Vector2 position,
-  ) {
+  void _handleInput(InputType inputType, Vector2 position) {
     if (state.isPreview) {
       return;
     }
@@ -389,10 +365,7 @@ class GameBloc extends Cubit<GameState> {
     }
   }
 
-  void _handleAction(
-    Action action,
-    Vector2 position,
-  ) {
+  void _handleAction(Action action, Vector2 position) {
     final status = state.status;
 
     if (status == GameStatus.notStarted) {
@@ -482,10 +455,7 @@ class GameBloc extends Cubit<GameState> {
     }
   }
 
-  void _switchOrSetMarkAt(
-    Vector2 position,
-    Mark mark,
-  ) {
+  void _switchOrSetMarkAt(Vector2 position, Mark mark) {
     if (position.x < 0 ||
         position.y < 0 ||
         position.x >= state.minefield.width ||
@@ -518,10 +488,7 @@ class GameBloc extends Cubit<GameState> {
 
     audioManager.playOpenArea();
 
-    _updateState(
-      advanceTurn: false,
-      position: position,
-    );
+    _updateState(advanceTurn: false, position: position);
   }
 
   void _switchMarkAt(Vector2 position) {
@@ -560,10 +527,7 @@ class GameBloc extends Cubit<GameState> {
         minefieldHandler.refreshForms();
       }
 
-      _updateState(
-        advanceTurn: false,
-        position: position,
-      );
+      _updateState(advanceTurn: false, position: position);
     }
   }
 
@@ -647,20 +611,13 @@ class GameBloc extends Cubit<GameState> {
       seed: save.seed,
     );
 
-    minefieldHandler.loadFromList(
-      minefield,
-      theme.connectAreas,
-      save.areas,
-    );
+    minefieldHandler.loadFromList(minefield, theme.connectAreas, save.areas);
 
     if (save.status == GameStatus.inProgress) {
       audioManager.playMusic(restart: true);
     }
 
-    final params = GameParams(
-      difficulty: save.difficulty,
-      seed: save.seed,
-    );
+    final params = GameParams(difficulty: save.difficulty, seed: save.seed);
 
     if (!settings.showContinueGame) {
       settingsManager.setShowContinueGame(true);
@@ -729,10 +686,7 @@ class GameBloc extends Cubit<GameState> {
     }
   }
 
-  void saveCameraState({
-    required Vector2 position,
-    required double zoom,
-  }) {
+  void saveCameraState({required Vector2 position, required double zoom}) {
     settingsManager.saveCameraState(position, zoom);
   }
 

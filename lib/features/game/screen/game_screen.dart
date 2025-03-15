@@ -77,9 +77,7 @@ class _GameScreenState extends State<GameScreen> {
             leading: BackButton(onPressed: () => _backNavigate(context)),
             actions: [
               if (!state.params.isPreview)
-                TrailingAction(
-                  settings: widget.settings,
-                ),
+                TrailingAction(settings: widget.settings),
             ],
             centerTitle: true,
             title: HighlightContainer(
@@ -92,10 +90,11 @@ class _GameScreenState extends State<GameScreen> {
             backgroundColor: widget.theme.background.withAlpha(127),
           ),
           extendBody: true,
-          bottomNavigationBar: [
-            if (state.params.isPreview && state.params.saveId == null)
-              const GamePreviewBottomBar(),
-          ].firstOrNull,
+          bottomNavigationBar:
+              [
+                if (state.params.isPreview && state.params.saveId == null)
+                  const GamePreviewBottomBar(),
+              ].firstOrNull,
           body: BlocListener<SideEffectBloc, SideEffectEvent?>(
             listener: (context, state) => _handleSideEffect(context, state),
             child: Builder(
@@ -108,9 +107,7 @@ class _GameScreenState extends State<GameScreen> {
 
                 return Stack(
                   children: [
-                    GameWidget(
-                      game: _gameRenderer,
-                    ),
+                    GameWidget(game: _gameRenderer),
                     const GameLoadingIndicator(),
                     if (!state.params.isPreview) const InitialLabel(),
                     if (!state.params.isPreview ||
@@ -139,31 +136,30 @@ class _GameScreenState extends State<GameScreen> {
     context.pop();
   }
 
-  void _handleSideEffect(
-    BuildContext context,
-    SideEffectEvent? event,
-  ) {
+  void _handleSideEffect(BuildContext context, SideEffectEvent? event) {
     final gameBloc = context.read<GameBloc>();
 
     if (event is VictoryEffect) {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (_) => VictoryDialog(
-          outContext: context,
-          bloc: gameBloc,
-          settings: widget.settings,
-        ),
+        builder:
+            (_) => VictoryDialog(
+              outContext: context,
+              bloc: gameBloc,
+              settings: widget.settings,
+            ),
       );
     } else if (event is GameOverEffect) {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (_) => GameOverDialog(
-          outContext: context,
-          bloc: gameBloc,
-          settings: widget.settings,
-        ),
+        builder:
+            (_) => GameOverDialog(
+              outContext: context,
+              bloc: gameBloc,
+              settings: widget.settings,
+            ),
       );
     } else if (event is NoMoreHintsEffect) {
       showGameAlert(

@@ -3,11 +3,7 @@ import '../../../common/models/minefield.dart';
 
 extension AreaExt on List<Area> {
   /// Get the index of the area at the given coordinates.
-  int indexFor(
-    Minefield minefield,
-    int x,
-    int y,
-  ) {
+  int indexFor(Minefield minefield, int x, int y) {
     return x + y * minefield.width;
   }
 

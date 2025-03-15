@@ -7,19 +7,11 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   final batchList = BatchList(
     areaSize: 10,
-    minefield: const Minefield(
-      width: 10,
-      height: 10,
-      mines: 10,
-      seed: 0,
-    ),
+    minefield: const Minefield(width: 10, height: 10, mines: 10, seed: 0),
   );
 
   test('x and y initial value', () {
-    expect(
-      batchList.position,
-      equals(Vector2.zero()),
-    );
+    expect(batchList.position, equals(Vector2.zero()));
   });
 
   test('set x and y', () {
@@ -29,17 +21,11 @@ void main() {
       ..y = 2;
 
     // Then
-    expect(
-      batchList.position,
-      equals(Vector2(1, 2)),
-    );
+    expect(batchList.position, equals(Vector2(1, 2)));
   });
 
   test('initial color is white', () {
-    expect(
-      batchList.color,
-      Colors.white,
-    );
+    expect(batchList.color, Colors.white);
   });
 
   test('add items to batch', () {
@@ -57,16 +43,13 @@ void main() {
       ..add(const Rect.fromLTRB(6, 5, 2, 6));
 
     // Then
-    expect(
-      batchList.colors,
-      equals([Colors.red, Colors.blue]),
-    );
+    expect(batchList.colors, equals([Colors.red, Colors.blue]));
 
     expect(
       batchList.transforms.map((e) => [e.scos, e.ssin, e.tx, e.ty]),
       equals([
         [0.041015625, 0.0, -40.25, -30.25],
-        [0.041015625, 0.0, -0.25, 9.75]
+        [0.041015625, 0.0, -0.25, 9.75],
       ]),
     );
 

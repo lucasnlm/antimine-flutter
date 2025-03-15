@@ -14,9 +14,7 @@ import 'hash_builder.dart';
 ///  - Ix: Initial X position of the player, 8 bits
 ///  - Iy: Initial Y position of the player, 8 bits
 class HashManager {
-  HashManager({
-    required this.randomnessManager,
-  });
+  HashManager({required this.randomnessManager});
 
   final RandomnessManager randomnessManager;
 

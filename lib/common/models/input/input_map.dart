@@ -15,9 +15,5 @@ class InputMap extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
-        id,
-        inputMap,
-        showInputSelector,
-      ];
+  List<Object?> get props => [id, inputMap, showInputSelector];
 }

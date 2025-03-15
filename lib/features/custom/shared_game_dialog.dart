@@ -116,9 +116,7 @@ class _SharedGameDialogState extends State<SharedGameDialog> {
                         padding: const EdgeInsets.all(Spacing.x16),
                         child: Text(t.shared_game_description),
                       ),
-                      const SizedBox(
-                        height: Spacing.x24,
-                      ),
+                      const SizedBox(height: Spacing.x24),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -151,12 +149,7 @@ class _SharedGameDialogState extends State<SharedGameDialog> {
                               horizontal: Spacing.x8,
                               vertical: Spacing.x8,
                             ),
-                            child: Text(
-                              ':',
-                              style: TextStyle(
-                                fontSize: 24,
-                              ),
-                            ),
+                            child: Text(':', style: TextStyle(fontSize: 24)),
                           ),
                           Flexible(
                             child: TextField(
@@ -183,7 +176,7 @@ class _SharedGameDialogState extends State<SharedGameDialog> {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -195,37 +188,35 @@ class _SharedGameDialogState extends State<SharedGameDialog> {
                   onPressed:
                       state.validHash && state.isValid && minefield != null
                           ? () async {
-                              bloc.saveHashes();
-                              Navigator.of(context).pop();
+                            bloc.saveHashes();
+                            Navigator.of(context).pop();
 
-                              final difficulty =
-                                  widget.minefieldManager.fromMinefield(
-                                minefield,
-                              );
+                            final difficulty = widget.minefieldManager
+                                .fromMinefield(minefield);
 
-                              if (difficulty == Difficulty.custom) {
-                                bloc.setWidth(minefield.width);
-                                bloc.setHeight(minefield.height);
-                                bloc.setMines(minefield.mines);
-                                bloc.saveCustom();
-                              }
-
-                              Vector2? initPos = Vector2(
-                                state.gameHash?.initX.toDouble() ?? -1,
-                                state.gameHash?.initY.toDouble() ?? -1,
-                              );
-
-                              if (initPos.x == -1 || initPos.y == -1) {
-                                initPos = null;
-                              }
-
-                              GameRoute.open(
-                                widget.context,
-                                difficulty,
-                                state.gameHash?.minefield.seed,
-                                initPos,
-                              );
+                            if (difficulty == Difficulty.custom) {
+                              bloc.setWidth(minefield.width);
+                              bloc.setHeight(minefield.height);
+                              bloc.setMines(minefield.mines);
+                              bloc.saveCustom();
                             }
+
+                            Vector2? initPos = Vector2(
+                              state.gameHash?.initX.toDouble() ?? -1,
+                              state.gameHash?.initY.toDouble() ?? -1,
+                            );
+
+                            if (initPos.x == -1 || initPos.y == -1) {
+                              initPos = null;
+                            }
+
+                            GameRoute.open(
+                              widget.context,
+                              difficulty,
+                              state.gameHash?.minefield.seed,
+                              initPos,
+                            );
+                          }
                           : null,
                 ),
               ],

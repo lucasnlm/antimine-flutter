@@ -3,9 +3,7 @@ import 'package:vibration/vibration.dart';
 import '../settings/settings_manager.dart';
 
 class VibratorManager {
-  VibratorManager({
-    required this.settingsManager,
-  });
+  VibratorManager({required this.settingsManager});
 
   final SettingsManager settingsManager;
 
@@ -17,10 +15,7 @@ class VibratorManager {
     _vibrate(400, -1);
   }
 
-  void _vibrate(
-    int duration,
-    int amplitude,
-  ) async {
+  void _vibrate(int duration, int amplitude) async {
     if (!settingsManager.cache.vibration) {
       return;
     }
@@ -30,10 +25,7 @@ class VibratorManager {
 
     if (hasVibrator == true) {
       if (hasAmplitudeControl == true) {
-        await Vibration.vibrate(
-          duration: duration,
-          amplitude: amplitude,
-        );
+        await Vibration.vibrate(duration: duration, amplitude: amplitude);
       } else {
         await Vibration.vibrate();
       }

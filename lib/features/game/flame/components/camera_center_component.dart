@@ -46,11 +46,7 @@ class CameraCenterComponent extends Component
     bloc.changeCameraPosition(position);
   }
 
-  void changeCameraPosition(
-    Minefield minefield,
-    double newX,
-    double newY,
-  ) {
+  void changeCameraPosition(Minefield minefield, double newX, double newY) {
     final controlSwitcherPadding = Vector2(0.0, appBarHeight * 2);
     final minefieldSize = _minefieldSizeOf(minefield) + controlSwitcherPadding;
     final initialCameraPos = position;
@@ -91,10 +87,7 @@ class CameraCenterComponent extends Component
   }
 
   Vector2 _minefieldSizeOf(Minefield minefield) {
-    return Vector2(
-      minefield.width * areaSize,
-      minefield.height * areaSize,
-    );
+    return Vector2(minefield.width * areaSize, minefield.height * areaSize);
   }
 
   @override

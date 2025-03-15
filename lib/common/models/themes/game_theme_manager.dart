@@ -12,9 +12,7 @@ import 'game_theme.dart';
 import 'theme_color_type.dart';
 
 class GameThemeManager {
-  GameThemeManager({
-    required this.settingsManager,
-  });
+  GameThemeManager({required this.settingsManager});
 
   final SettingsManager settingsManager;
 
@@ -49,9 +47,10 @@ class GameThemeManager {
         primaryConflict ? _colorScheme.onPrimary : _colorScheme.primary;
     final onPrimary =
         primaryConflict ? _colorScheme.primary : _colorScheme.onPrimary;
-    final uncovered = isDark
-        ? primary.brighten(0.1).withOpacity(0.05)
-        : primary.darken(0.1).withOpacity(0.05);
+    final uncovered =
+        isDark
+            ? primary.brighten(0.1).withAlpha(14)
+            : primary.darken(0.1).withAlpha(14);
     return GameTheme(
       background: _colorScheme.surface,
       cover: primary,
@@ -59,7 +58,7 @@ class GameThemeManager {
           isDark && skin.canTint ? _darkBgNumberPalette : _lightBgNumberPalette,
       uncovered: uncovered,
       explodedMineBackground: _colorScheme.error,
-      neutralMineBackground: _colorScheme.onSurface.withOpacity(0.5),
+      neutralMineBackground: _colorScheme.onSurface.withAlpha(127),
       ignoredMineBackground: const Color(0xFF7CB342),
       mineColor: onPrimary,
       iconColor: isDark ? _colorScheme.surface : onPrimary,
@@ -89,28 +88,20 @@ class GameThemeManager {
     var invertPrimary = false;
 
     if (primaryColor.conflictBg) {
-      invertPrimary = (background.isDark && primaryColor.isDark) ||
+      invertPrimary =
+          (background.isDark && primaryColor.isDark) ||
           (!background.isDark && !primaryColor.isDark);
     }
 
     switch (background.themeColorType) {
       case ThemeColorType.dark:
-        _colorScheme = _darkColorScheme(
-          primaryColor,
-          invertPrimary,
-        );
+        _colorScheme = _darkColorScheme(primaryColor, invertPrimary);
         break;
       case ThemeColorType.amoled:
-        _colorScheme = _amoledColorScheme(
-          primaryColor,
-          invertPrimary,
-        );
+        _colorScheme = _amoledColorScheme(primaryColor, invertPrimary);
         break;
       default:
-        _colorScheme = _lightColorScheme(
-          primaryColor,
-          invertPrimary,
-        );
+        _colorScheme = _lightColorScheme(primaryColor, invertPrimary);
         break;
     }
 
@@ -121,10 +112,7 @@ class GameThemeManager {
     }
   }
 
-  ColorScheme _darkColorScheme(
-    GamePrimaryColor primary,
-    bool invertPrimary,
-  ) {
+  ColorScheme _darkColorScheme(GamePrimaryColor primary, bool invertPrimary) {
     final primaryValue =
         invertPrimary ? primary.onPrimary.darken(0.5) : primary.primary;
     final onPrimaryValue = invertPrimary ? primary.primary : primary.onPrimary;
@@ -139,10 +127,7 @@ class GameThemeManager {
     );
   }
 
-  ColorScheme _lightColorScheme(
-    GamePrimaryColor primary,
-    bool invertPrimary,
-  ) {
+  ColorScheme _lightColorScheme(GamePrimaryColor primary, bool invertPrimary) {
     final primaryValue = invertPrimary ? primary.onPrimary : primary.primary;
     final onPrimaryValue = invertPrimary ? primary.primary : primary.onPrimary;
     return ColorScheme.light(
@@ -156,10 +141,7 @@ class GameThemeManager {
     );
   }
 
-  ColorScheme _amoledColorScheme(
-    GamePrimaryColor primary,
-    bool invertPrimary,
-  ) {
+  ColorScheme _amoledColorScheme(GamePrimaryColor primary, bool invertPrimary) {
     final primaryValue = invertPrimary ? primary.onPrimary : primary.primary;
     final onPrimaryValue = invertPrimary ? primary.primary : primary.onPrimary;
     return ColorScheme.highContrastDark(

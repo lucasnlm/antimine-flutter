@@ -8,17 +8,11 @@ import '../models/stats_board.dart';
 import 'stats_board_view.dart';
 
 class LoadedStatsList extends StatelessWidget {
-  const LoadedStatsList({
-    super.key,
-    required this.boards,
-  });
+  const LoadedStatsList({super.key, required this.boards});
 
   final List<StatsBoard> boards;
 
-  String _difficultyTitle(
-    BuildContext context,
-    Difficulty? difficulty,
-  ) {
+  String _difficultyTitle(BuildContext context, Difficulty? difficulty) {
     switch (difficulty) {
       case Difficulty.standard:
         return t.standard;
@@ -44,9 +38,7 @@ class LoadedStatsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (boards.isEmpty) {
-      return Center(
-        child: Text(t.empty),
-      );
+      return Center(child: Text(t.empty));
     } else {
       return ListView.separated(
         padding: EdgeInsets.symmetric(
@@ -57,17 +49,12 @@ class LoadedStatsList extends StatelessWidget {
         itemBuilder: (context, index) {
           final board = boards[index];
           return StatsBoardView(
-            title: _difficultyTitle(
-              context,
-              board.difficulty,
-            ),
+            title: _difficultyTitle(context, board.difficulty),
             board: board,
           );
         },
         separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: Spacing.x16,
-          );
+          return const SizedBox(height: Spacing.x16);
         },
       );
     }

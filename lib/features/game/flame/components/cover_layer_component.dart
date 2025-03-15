@@ -31,10 +31,7 @@ class CoverLayerComponent extends CommonLayerComponent {
     this.minefield = minefield;
     this.areas = areas;
 
-    final batchList = BatchList(
-      minefield: minefield,
-      areaSize: areaSize,
-    );
+    final batchList = BatchList(minefield: minefield, areaSize: areaSize);
 
     for (final area in areas) {
       if (!area.covered) {

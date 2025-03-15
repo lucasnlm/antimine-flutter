@@ -40,14 +40,8 @@ void main() {
     expect(result.minefield.seed, 0);
     expect(result.areas.length, 81);
 
-    expect(
-      result.areas.where((e) => e.hasMine && e.mark.isFlag).length,
-      10,
-    );
-    expect(
-      result.areas.where((e) => !e.hasMine && !e.covered).length,
-      71,
-    );
+    expect(result.areas.where((e) => e.hasMine && e.mark.isFlag).length, 10);
+    expect(result.areas.where((e) => !e.hasMine && !e.covered).length, 71);
   });
 
   test('serialize save', () async {
@@ -61,12 +55,7 @@ void main() {
       firstOpen: FirstOpen(initialId: 40),
       status: GameStatus.success,
       turns: 36,
-      minefield: const Minefield(
-        width: 9,
-        height: 9,
-        mines: 10,
-        seed: 0,
-      ),
+      minefield: const Minefield(width: 9, height: 9, mines: 10, seed: 0),
       areas: List.generate(81, (index) {
         return Area(id: index, x: index % 9, y: index ~/ 9);
       }),
@@ -87,12 +76,6 @@ void main() {
     final content = saveFile.readAsBytesSync();
 
     // Then
-    expect(
-      SaveFileSerializer.fromUint8List(
-        'corrupt',
-        content,
-      ),
-      isNull,
-    );
+    expect(SaveFileSerializer.fromUint8List('corrupt', content), isNull);
   });
 }

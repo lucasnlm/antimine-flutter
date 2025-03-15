@@ -38,11 +38,13 @@ class ActionButton extends StatelessWidget {
           ),
           shape: WidgetStateProperty.all(
             const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(Spacing.x8))),
+              borderRadius: BorderRadius.all(Radius.circular(Spacing.x8)),
+            ),
           ),
         ),
         padding: const EdgeInsets.all(0.0),
-        onPressed: onPressed ??
+        onPressed:
+            onPressed ??
             () {
               final action = this.action;
               if (action != null) {
@@ -51,11 +53,14 @@ class ActionButton extends StatelessWidget {
             },
         icon: Icon(
           icon,
-          color: isPrimary
-              ? colorScheme.onPrimary
-              : colorScheme.onSurface.withOpacity(0.7),
+          color:
+              isPrimary
+                  ? colorScheme.onPrimary
+                  : colorScheme.onSurface.withAlpha(_buttonAlphaSurface),
         ),
       ),
     );
   }
+
+  static final _buttonAlphaSurface = (0.7 * 255.0) as int;
 }

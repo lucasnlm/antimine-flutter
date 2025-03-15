@@ -24,25 +24,27 @@ class ShareGameModal extends StatelessWidget {
               horizontal: Spacing.x8,
               vertical: Spacing.x8,
             ),
-            child: Column(children: [
-              ListTile(
-                title: Text(t.image),
-                leading: const Icon(Icons.image),
-                onTap: () {
-                  onImage();
-                  Navigator.of(context).pop();
-                },
-              ),
-              ListTile(
-                title: Text(t.code),
-                leading: const Icon(Icons.tag),
-                onTap: () {
-                  onCode();
-                  Navigator.of(context).pop();
-                },
-              ),
-              const SizedBox(height: Spacing.x16),
-            ]),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(t.image),
+                  leading: const Icon(Icons.image),
+                  onTap: () {
+                    onImage();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                ListTile(
+                  title: Text(t.code),
+                  leading: const Icon(Icons.tag),
+                  onTap: () {
+                    onCode();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const SizedBox(height: Spacing.x16),
+              ],
+            ),
           ),
         ],
       ),

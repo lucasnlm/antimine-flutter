@@ -4,11 +4,7 @@ import '../../../foundation/ui/game_container.dart';
 import '../../../foundation/ui/spacing.dart';
 
 class TutorialContainer extends StatelessWidget {
-  const TutorialContainer({
-    super.key,
-    required this.text,
-    this.leftIcon,
-  });
+  const TutorialContainer({super.key, required this.text, this.leftIcon});
 
   final IconData? leftIcon;
   final String text;
@@ -28,17 +24,9 @@ class TutorialContainer extends StatelessWidget {
             if (leftIcon != null)
               Padding(
                 padding: const EdgeInsets.only(right: Spacing.x16),
-                child: Icon(
-                  leftIcon,
-                  color: theme.colorScheme.onSurface,
-                ),
+                child: Icon(leftIcon, color: theme.colorScheme.onSurface),
               ),
-            Expanded(
-              child: Text(
-                text,
-                style: theme.textTheme.bodyLarge,
-              ),
-            ),
+            Expanded(child: Text(text, style: theme.textTheme.bodyLarge)),
           ],
         ),
       ),

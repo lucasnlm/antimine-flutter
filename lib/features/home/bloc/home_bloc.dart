@@ -17,11 +17,11 @@ class HomeBloc extends Cubit<HomeState> {
     required this.settingsManager,
     required this.inAppUpdateManager,
   }) : super(
-          HomeState(
-            setShowContinueGame: settingsManager.cache.showContinueGame,
-            difficulties: getDifficulties(minefieldManager),
-          ),
-        );
+         HomeState(
+           setShowContinueGame: settingsManager.cache.showContinueGame,
+           difficulties: getDifficulties(minefieldManager),
+         ),
+       );
 
   final SideEffectBloc sideEffectBloc;
   final MinefieldManager minefieldManager;
@@ -50,26 +50,20 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void startGame() {
-    sideEffectBloc.emit(
-      StartNewGameSideEffect(),
-    );
+    sideEffectBloc.emit(StartNewGameSideEffect());
   }
 
   void startNewGame(Difficulty difficulty) {
-    sideEffectBloc.emit(
-      StartNewGameSideEffect(
-        difficulty: difficulty,
-      ),
-    );
+    sideEffectBloc.emit(StartNewGameSideEffect(difficulty: difficulty));
   }
 
   static Map<Difficulty, String> getDifficulties(
     MinefieldManager minefieldManager,
   ) {
-    final entries = Difficulty.values.map((e) => MapEntry<Difficulty, String>(
-          e,
-          minefieldManager.formatToString(e),
-        ));
+    final entries = Difficulty.values.map(
+      (e) =>
+          MapEntry<Difficulty, String>(e, minefieldManager.formatToString(e)),
+    );
     return {for (var e in entries) e.key: e.value};
   }
 }

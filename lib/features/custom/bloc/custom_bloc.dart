@@ -7,22 +7,20 @@ import '../../../common/settings/settings_manager.dart';
 import 'custom_state.dart';
 
 class CustomBloc extends Cubit<CustomState> {
-  CustomBloc({
-    required this.settingsManager,
-    required this.hashManager,
-  }) : super(
-          CustomState(
-            width: settingsManager.cache.customWidth,
-            height: settingsManager.cache.customHeight,
-            mines: settingsManager.cache.customMines,
-            hashBase: settingsManager.cache.hashBase ?? '',
-            hashSeed: settingsManager.cache.hashSeed ?? '',
-            minDimension: _minValue,
-            maxDimension: _maxValue,
-            minMines: _minMinesValue,
-            maxMinesProportion: _maxMinesProportion,
-          ),
-        );
+  CustomBloc({required this.settingsManager, required this.hashManager})
+    : super(
+        CustomState(
+          width: settingsManager.cache.customWidth,
+          height: settingsManager.cache.customHeight,
+          mines: settingsManager.cache.customMines,
+          hashBase: settingsManager.cache.hashBase ?? '',
+          hashSeed: settingsManager.cache.hashSeed ?? '',
+          minDimension: _minValue,
+          maxDimension: _maxValue,
+          minMines: _minMinesValue,
+          maxMinesProportion: _maxMinesProportion,
+        ),
+      );
 
   final HashManager hashManager;
   final SettingsManager settingsManager;
@@ -57,11 +55,7 @@ class CustomBloc extends Cubit<CustomState> {
   }
 
   void clearClipboard() {
-    emit(
-      state.copyWith(
-        fromClipboard: false,
-      ),
-    );
+    emit(state.copyWith(fromClipboard: false));
   }
 
   void setWidth(int width) {
@@ -81,9 +75,7 @@ class CustomBloc extends Cubit<CustomState> {
   }
 
   void setHashBase(String base) {
-    final gameHash = hashManager.parseHash(
-      '$base:${state.hashSeed}',
-    );
+    final gameHash = hashManager.parseHash('$base:${state.hashSeed}');
     emit(
       state.copyWith(
         hashBase: base,
@@ -97,9 +89,7 @@ class CustomBloc extends Cubit<CustomState> {
   }
 
   void setHashSeed(String seed) {
-    final gameHash = hashManager.parseHash(
-      '${state.hashBase}:$seed',
-    );
+    final gameHash = hashManager.parseHash('${state.hashBase}:$seed');
     emit(
       state.copyWith(
         hashSeed: seed,

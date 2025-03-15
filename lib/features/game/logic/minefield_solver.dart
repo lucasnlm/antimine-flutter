@@ -18,9 +18,7 @@ class MinefieldSolver {
     // Flag Revealed
     for (final area in _areas) {
       if (area.revealed) {
-        _areas[area.id] = _areas[area.id].copyWith(
-          mark: Mark.flag,
-        );
+        _areas[area.id] = _areas[area.id].copyWith(mark: Mark.flag);
       }
     }
 
@@ -88,9 +86,7 @@ class MinefieldSolver {
     for (var e in area.neighboursList) {
       final neighbour = _areas[e];
       if (neighbour.covered && !neighbour.mark.isFlag) {
-        _areas[e] = _areas[e].copyWith(
-          covered: false,
-        );
+        _areas[e] = _areas[e].copyWith(covered: false);
       }
     }
   }
@@ -99,9 +95,7 @@ class MinefieldSolver {
     for (var e in area.neighboursList) {
       final neighbour = _areas[e];
       if (neighbour.covered) {
-        _areas[e] = _areas[e].copyWith(
-          mark: Mark.flag,
-        );
+        _areas[e] = _areas[e].copyWith(mark: Mark.flag);
       }
     }
   }

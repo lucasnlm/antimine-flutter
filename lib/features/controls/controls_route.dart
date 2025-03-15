@@ -12,16 +12,12 @@ class ControlsRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ControlsBloc>(
-      create: (_) => ControlsBloc(
-        settingsManager: context.read(),
-      ),
+      create: (_) => ControlsBloc(settingsManager: context.read()),
       child: const ControlsScreen(),
     );
   }
 
-  static void open(
-    BuildContext context,
-  ) async {
+  static void open(BuildContext context) async {
     await context.push(GameRoutes.controls);
   }
 }

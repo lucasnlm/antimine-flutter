@@ -98,11 +98,7 @@ class GameRenderer extends FlameGame
     _lastInteractionTime = currentTime();
   }
 
-  void updateGame(
-    GameParams params,
-    bool isPortrait,
-    double appBarHeight,
-  ) {
+  void updateGame(GameParams params, bool isPortrait, double appBarHeight) {
     this.isPortrait = isPortrait;
     this.params = params;
     this.appBarHeight = appBarHeight;
@@ -139,9 +135,7 @@ class GameRenderer extends FlameGame
     world.add(
       FlameMultiBlocProvider(
         providers: [
-          FlameBlocProvider<GameBloc, GameState>.value(
-            value: gameBloc,
-          ),
+          FlameBlocProvider<GameBloc, GameState>.value(value: gameBloc),
           FlameBlocProvider<SideEffectBloc, SideEffectEvent?>.value(
             value: sideEffectBloc,
           ),
@@ -295,10 +289,7 @@ class GameRenderer extends FlameGame
 
   @override
   void onScaleEnd(ScaleEndInfo info) {
-    gameBloc.saveCameraState(
-      position: cameraCenter.position,
-      zoom: _startZoom,
-    );
+    gameBloc.saveCameraState(position: cameraCenter.position, zoom: _startZoom);
   }
 
   @override
@@ -335,11 +326,7 @@ class GameRenderer extends FlameGame
     final controlType = settings.controlType;
     if (controlType == GameInput.type5.id) {
       final lastInputPosition = _lastInputPosition;
-      await Future.delayed(
-        const Duration(
-          milliseconds: _tapMinDurationMs,
-        ),
-      );
+      await Future.delayed(const Duration(milliseconds: _tapMinDurationMs));
       if (!_consumeInput && _lastInputPosition == lastInputPosition) {
         _consumeTapUp(event.localPosition);
         _consumeInput = true;
@@ -416,10 +403,7 @@ class GameRenderer extends FlameGame
     }
   }
 
-  void shareGame({
-    required String hash,
-    required String minefieldSize,
-  }) async {
+  void shareGame({required String hash, required String minefieldSize}) async {
     resumeEngine();
 
     final minefield = gameBloc.state.minefield;
@@ -464,10 +448,7 @@ class GameRenderer extends FlameGame
     textPainter.layout();
     textPainter.paint(
       canvas,
-      Offset(
-        -width * 0.5 + padding,
-        -height * 0.5 + padding * 0.33,
-      ),
+      Offset(-width * 0.5 + padding, -height * 0.5 + padding * 0.33),
     );
 
     debugPrint('> Generating share picture to $hash...');

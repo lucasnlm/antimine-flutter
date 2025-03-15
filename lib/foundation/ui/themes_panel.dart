@@ -4,11 +4,7 @@ import 'game_container.dart';
 import 'spacing.dart';
 
 class TitledPanel extends StatelessWidget {
-  const TitledPanel({
-    super.key,
-    required this.title,
-    required this.children,
-  });
+  const TitledPanel({super.key, required this.title, required this.children});
 
   final String title;
   final List<Widget> children;
@@ -17,9 +13,7 @@ class TitledPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.x24,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.x24),
       child: SizedBox(
         width: double.infinity,
         child: GameContainer(
@@ -41,7 +35,7 @@ class TitledPanel extends StatelessWidget {
               ),
               const SizedBox(height: Spacing.x4),
               ...children,
-              const SizedBox(height: Spacing.x8)
+              const SizedBox(height: Spacing.x8),
             ],
           ),
         ),

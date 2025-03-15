@@ -23,10 +23,11 @@ void main() {
       bloc.emit(_SideEffectA());
       bloc.emit(_SideEffectB());
     },
-    validation: (emittedStates) => [
-      emittedStates[0] is _SideEffectA,
-      emittedStates[1] is _SideEffectB,
-    ],
+    validation:
+        (emittedStates) => [
+          emittedStates[0] is _SideEffectA,
+          emittedStates[1] is _SideEffectB,
+        ],
   );
 
   blocTest(
@@ -36,9 +37,10 @@ void main() {
       bloc.emit(_SideEffectA());
       bloc.emit(_SideEffectA());
     },
-    validation: (emittedStates) => [
-      emittedStates[0] is _SideEffectA,
-      emittedStates[1] is _SideEffectA,
-    ],
+    validation:
+        (emittedStates) => [
+          emittedStates[0] is _SideEffectA,
+          emittedStates[1] is _SideEffectA,
+        ],
   );
 }

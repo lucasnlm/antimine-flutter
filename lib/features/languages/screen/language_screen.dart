@@ -15,10 +15,7 @@ class LanguageScreen extends StatelessWidget {
     return BlocBuilder<LanguageBloc, LanguageState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            leading: const BackButton(),
-            title: Text(t.language),
-          ),
+          appBar: AppBar(leading: const BackButton(), title: Text(t.language)),
           body: SafeArea(
             child: ListView.builder(
               itemCount: state.languages.length,

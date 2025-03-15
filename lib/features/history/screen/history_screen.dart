@@ -47,81 +47,78 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 ),
               ],
             ),
-            body: [
-              if (state.isLoading)
-                const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              if (state.historyItems.isNotEmpty)
-                SafeArea(
-                  child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: Spacing.x8,
-                    ),
-                    itemCount: state.historyItems.length,
-                    itemBuilder: (context, index) {
-                      final item = state.historyItems[index];
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: isTablet ? Spacing.x128 : Spacing.x16,
-                          vertical: Spacing.x4,
+            body:
+                [
+                  if (state.isLoading)
+                    const Center(child: CircularProgressIndicator()),
+                  if (state.historyItems.isNotEmpty)
+                    SafeArea(
+                      child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: Spacing.x8,
                         ),
-                        child: ListTile(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(Spacing.x8),
-                          ),
-                          tileColor: colorScheme.onSurface.withOpacity(0.1),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: Spacing.x16,
-                            vertical: Spacing.x8,
-                          ),
-                          leading: Icon(
-                            item.save.status == GameStatus.success
-                                ? Icons.star
-                                : Icons.star_border,
-                            color: theme.colorScheme.primary,
-                          ),
-                          onTap: () {
-                            GameRoute.openAsPreview(
-                              context,
-                              item.save.id,
-                            );
-                          },
-                          title: Text(
-                            difficultyToString(item.save.difficulty),
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          subtitle: Text(
-                            item.hash.hash,
-                            style: theme.textTheme.titleSmall?.copyWith(
-                              color: theme.colorScheme.primary.withOpacity(0.5),
+                        itemCount: state.historyItems.length,
+                        itemBuilder: (context, index) {
+                          final item = state.historyItems[index];
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isTablet ? Spacing.x128 : Spacing.x16,
+                              vertical: Spacing.x4,
                             ),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.search),
-                                tooltip: t.open,
-                                onPressed: () {
-                                  GameRoute.openAsPreview(
-                                    context,
-                                    item.save.id,
-                                  );
-                                },
+                            child: ListTile(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(Spacing.x8),
                               ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              if (state.historyItems.isEmpty)
-                Center(
-                  child: Text(t.empty),
-                ),
-            ].first,
+                              tileColor: colorScheme.onSurface.withAlpha(
+                                _titleAlphaColor,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: Spacing.x16,
+                                vertical: Spacing.x8,
+                              ),
+                              leading: Icon(
+                                item.save.status == GameStatus.success
+                                    ? Icons.star
+                                    : Icons.star_border,
+                                color: theme.colorScheme.primary,
+                              ),
+                              onTap: () {
+                                GameRoute.openAsPreview(context, item.save.id);
+                              },
+                              title: Text(
+                                difficultyToString(item.save.difficulty),
+                                style: theme.textTheme.titleMedium,
+                              ),
+                              subtitle: Text(
+                                item.hash.hash,
+                                style: theme.textTheme.titleSmall?.copyWith(
+                                  color: theme.colorScheme.primary.withAlpha(
+                                    _subtitleAlphaColor,
+                                  ),
+                                ),
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.search),
+                                    tooltip: t.open,
+                                    onPressed: () {
+                                      GameRoute.openAsPreview(
+                                        context,
+                                        item.save.id,
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  if (state.historyItems.isEmpty) Center(child: Text(t.empty)),
+                ].first,
           ),
         );
       },
@@ -154,4 +151,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     super.initState();
     context.read<HistoryBloc>().load();
   }
+
+  static final _subtitleAlphaColor = (255.0 * 0.5) as int;
+  static final _titleAlphaColor = (255.0 * 0.1) as int;
 }

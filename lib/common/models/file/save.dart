@@ -74,15 +74,15 @@ class SaveGame extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        seed,
-        startDate,
-        duration,
-        minefield,
-        difficulty,
-        firstOpen,
-        status,
-        areas,
-        turns,
-      ];
+    id,
+    seed,
+    startDate,
+    duration,
+    minefield,
+    difficulty,
+    firstOpen,
+    status,
+    areas,
+    turns,
+  ];
 }

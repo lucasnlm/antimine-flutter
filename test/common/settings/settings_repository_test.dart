@@ -47,8 +47,9 @@ void main() {
 
   test('setString', () async {
     // Given
-    when(() => mockPrefs.setString('test', 'test'))
-        .thenAnswer((_) async => true);
+    when(
+      () => mockPrefs.setString('test', 'test'),
+    ).thenAnswer((_) async => true);
 
     // When
     await testRepository.setString('test', 'test');

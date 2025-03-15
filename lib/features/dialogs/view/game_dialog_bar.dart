@@ -33,20 +33,16 @@ class GameDialogHeader extends StatelessWidget {
               tooltip: t.close,
               icon: const Icon(Icons.close),
               onPressed: onClose,
-            )
+            ),
           ],
         ),
         Align(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.only(
-              top: Spacing.x24,
-            ),
-            child: GameEmoji(
-              emojis: emojis,
-            ),
+            padding: const EdgeInsets.only(top: Spacing.x24),
+            child: GameEmoji(emojis: emojis),
           ),
-        )
+        ),
       ],
     );
   }

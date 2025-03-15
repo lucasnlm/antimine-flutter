@@ -18,9 +18,7 @@ class ThemesScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const BackButton(),
         title: Text(t.themes),
-        actions: const [
-          UndoChangesAction(),
-        ],
+        actions: const [UndoChangesAction()],
       ),
       bottomNavigationBar: const PreviewBottomBar(),
       body: SingleChildScrollView(

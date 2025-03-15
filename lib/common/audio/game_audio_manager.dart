@@ -10,8 +10,8 @@ class GameAudioManager {
     required this.settingsManager,
     AudioCache? audioCache,
     Bgm? bgm,
-  })  : audioCache = audioCache ?? FlameAudio.audioCache,
-        bgm = bgm ?? FlameAudio.bgm;
+  }) : audioCache = audioCache ?? FlameAudio.audioCache,
+       bgm = bgm ?? FlameAudio.bgm;
 
   final AudioCache audioCache;
   final Bgm bgm;

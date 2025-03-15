@@ -16,10 +16,7 @@ class AboutIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(iconSize * 0.5),
         child: SizedBox(
           width: iconSize,
-          child: Image.asset(
-            './assets/icon.png',
-            fit: BoxFit.contain,
-          ),
+          child: Image.asset('./assets/icon.png', fit: BoxFit.contain),
         ),
       ),
     );

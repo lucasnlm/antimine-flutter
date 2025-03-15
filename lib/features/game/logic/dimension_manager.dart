@@ -4,16 +4,12 @@ import 'package:antimine/common/utils/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
 class DimensionManager {
-  DimensionManager({
-    bool? isMobile,
-  }) : isMobile = isMobile ?? _isMobile();
+  DimensionManager({bool? isMobile}) : isMobile = isMobile ?? _isMobile();
 
   late Size screenSize;
   final bool isMobile;
 
-  void init({
-    required Size screenSize,
-  }) {
+  void init({required Size screenSize}) {
     this.screenSize = screenSize;
   }
 

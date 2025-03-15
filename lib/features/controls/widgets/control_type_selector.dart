@@ -16,10 +16,6 @@ class ControlTypeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ControlTypeContainer(
-      selected: selected,
-      onTap: onTap,
-      child: child,
-    );
+    return ControlTypeContainer(selected: selected, onTap: onTap, child: child);
   }
 }

@@ -5,10 +5,7 @@ import 'game_container.dart';
 import 'spacing.dart';
 
 class HomeContainer extends StatelessWidget {
-  const HomeContainer({
-    super.key,
-    required this.children,
-  });
+  const HomeContainer({super.key, required this.children});
 
   final List<Widget> children;
 
@@ -21,11 +18,7 @@ class HomeContainer extends StatelessWidget {
         left: horizontalPadding,
         right: horizontalPadding,
       ),
-      child: GameContainer(
-        child: Column(
-          children: children,
-        ),
-      ),
+      child: GameContainer(child: Column(children: children)),
     );
   }
 }

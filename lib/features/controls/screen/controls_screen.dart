@@ -21,10 +21,7 @@ class ControlsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(),
-        title: Text(t.control),
-      ),
+      appBar: AppBar(leading: const BackButton(), title: Text(t.control)),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -116,9 +113,7 @@ class ControlsScreen extends StatelessWidget {
                                         state.defaultAction == ga.Action.flag,
                                     tooltip: t.flag_tile,
                                     onPressed: () {
-                                      bloc.setDefaultAction(
-                                        ga.Action.flag,
-                                      );
+                                      bloc.setDefaultAction(ga.Action.flag);
                                     },
                                   ),
                                   const SizedBox(width: Spacing.x8),
@@ -128,9 +123,7 @@ class ControlsScreen extends StatelessWidget {
                                         state.defaultAction == ga.Action.open,
                                     tooltip: t.flag_tile,
                                     onPressed: () {
-                                      bloc.setDefaultAction(
-                                        ga.Action.open,
-                                      );
+                                      bloc.setDefaultAction(ga.Action.open);
                                     },
                                   ),
                                 ],

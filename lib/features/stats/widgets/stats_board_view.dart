@@ -7,11 +7,7 @@ import 'stats_divider.dart';
 import 'stats_item.dart';
 
 class StatsBoardView extends StatelessWidget {
-  const StatsBoardView({
-    super.key,
-    required this.title,
-    required this.board,
-  });
+  const StatsBoardView({super.key, required this.title, required this.board});
 
   final String title;
   final StatsBoard board;
@@ -21,50 +17,23 @@ class StatsBoardView extends StatelessWidget {
     return TitledPanel(
       title: title,
       children: [
-        StatsItem(
-          name: t.games,
-          value: board.gamesPlayed.toString(),
-        ),
+        StatsItem(name: t.games, value: board.gamesPlayed.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.mines,
-          value: board.totalMines.toString(),
-        ),
+        StatsItem(name: t.mines, value: board.totalMines.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.total_time,
-          value: board.totalTime.toString(),
-        ),
+        StatsItem(name: t.total_time, value: board.totalTime.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.average_time,
-          value: board.averageTime.toString(),
-        ),
+        StatsItem(name: t.average_time, value: board.averageTime.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.shortest_time,
-          value: board.bestTime.toString(),
-        ),
+        StatsItem(name: t.shortest_time, value: board.bestTime.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.open_areas,
-          value: board.openedCells.toString(),
-        ),
+        StatsItem(name: t.open_areas, value: board.openedCells.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.performance,
-          value: board.winPercentage.toString(),
-        ),
+        StatsItem(name: t.performance, value: board.winPercentage.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.victories,
-          value: board.victories.toString(),
-        ),
+        StatsItem(name: t.victories, value: board.victories.toString()),
         const StatsDivider(),
-        StatsItem(
-          name: t.defeats,
-          value: board.defeats.toString(),
-        ),
+        StatsItem(name: t.defeats, value: board.defeats.toString()),
       ],
     );
   }

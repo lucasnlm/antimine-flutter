@@ -56,20 +56,20 @@ class CustomState extends Equatable {
 
   @override
   List<Object?> get props => [
-        width,
-        height,
-        mines,
-        seed,
-        minDimension,
-        maxDimension,
-        minMines,
-        maxMinesProportion,
-        hashBase,
-        hashSeed,
-        gameHash,
-        validHash,
-        fromClipboard,
-      ];
+    width,
+    height,
+    mines,
+    seed,
+    minDimension,
+    maxDimension,
+    minMines,
+    maxMinesProportion,
+    hashBase,
+    hashSeed,
+    gameHash,
+    validHash,
+    fromClipboard,
+  ];
 
   CustomState copyWith({
     int? width,

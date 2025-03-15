@@ -27,10 +27,7 @@ import 'screen/game_params.dart';
 import 'screen/game_screen.dart';
 
 class GameRoute extends StatelessWidget {
-  const GameRoute({
-    super.key,
-    required this.params,
-  });
+  const GameRoute({super.key, required this.params});
 
   final GameParams params;
 
@@ -40,26 +37,27 @@ class GameRoute extends StatelessWidget {
     final gameThemeManager = context.read<GameThemeManager>();
     final gameTheme = gameThemeManager.gameTheme();
     return BlocProvider<GameBloc>(
-      create: (context) => GameBloc(
-        theme: gameTheme,
-        settings: settings,
-        minefieldSolver: context.read<MinefieldSolver>(),
-        dateTimeProvider: context.read<DateTimeProvider>(),
-        minefieldHandler: context.read<MinefieldHandler>(),
-        randomnessManager: context.read<RandomnessManager>(),
-        saveFileManager: context.read<SaveFileManager>(),
-        minefieldManager: context.read<MinefieldManager>(),
-        sideEffectBloc: context.read<SideEffectBloc>(),
-        hintManager: context.read<HintManager>(),
-        shareImageManager: context.read<ShareImageManager>(),
-        audioManager: context.read<GameAudioManager>(),
-        vibratorManager: context.read<VibratorManager>(),
-        statsFileManager: context.read<StatsFileManager>(),
-        hashManager: context.read<HashManager>(),
-        settingsManager: context.read<SettingsManager>(),
-        inAppReviewManager: context.read<InAppReviewManager>(),
-        params: params,
-      ),
+      create:
+          (context) => GameBloc(
+            theme: gameTheme,
+            settings: settings,
+            minefieldSolver: context.read<MinefieldSolver>(),
+            dateTimeProvider: context.read<DateTimeProvider>(),
+            minefieldHandler: context.read<MinefieldHandler>(),
+            randomnessManager: context.read<RandomnessManager>(),
+            saveFileManager: context.read<SaveFileManager>(),
+            minefieldManager: context.read<MinefieldManager>(),
+            sideEffectBloc: context.read<SideEffectBloc>(),
+            hintManager: context.read<HintManager>(),
+            shareImageManager: context.read<ShareImageManager>(),
+            audioManager: context.read<GameAudioManager>(),
+            vibratorManager: context.read<VibratorManager>(),
+            statsFileManager: context.read<StatsFileManager>(),
+            hashManager: context.read<HashManager>(),
+            settingsManager: context.read<SettingsManager>(),
+            inAppReviewManager: context.read<InAppReviewManager>(),
+            params: params,
+          ),
       child: GameScreen(
         dimensionManager: context.read<DimensionManager>(),
         skin: gameThemeManager.skin,
@@ -77,11 +75,12 @@ class GameRoute extends StatelessWidget {
   ]) async {
     await context.push(
       GameRoutes.game,
-      extra: GameParams(
-        difficulty: difficulty,
-        seed: seed,
-        initialPosition: initialPosition,
-      ).toMap(),
+      extra:
+          GameParams(
+            difficulty: difficulty,
+            seed: seed,
+            initialPosition: initialPosition,
+          ).toMap(),
     );
   }
 
@@ -93,53 +92,37 @@ class GameRoute extends StatelessWidget {
   ]) async {
     context.pushReplacement(
       GameRoutes.game,
-      extra: GameParams(
-        difficulty: difficulty,
-        seed: seed,
-        initialPosition: initialPosition,
-      ).toMap(),
+      extra:
+          GameParams(
+            difficulty: difficulty,
+            seed: seed,
+            initialPosition: initialPosition,
+          ).toMap(),
     );
   }
 
-  static void restartSave(
-    BuildContext context,
-    String saveId,
-  ) async {
+  static void restartSave(BuildContext context, String saveId) async {
     await context.push(
       GameRoutes.game,
-      extra: GameParams(
-        saveId: saveId,
-        restart: true,
-      ).toMap(),
+      extra: GameParams(saveId: saveId, restart: true).toMap(),
     );
   }
 
-  static void openSave(
-    BuildContext context, [
-    String? saveId,
-  ]) async {
+  static void openSave(BuildContext context, [String? saveId]) async {
     if (saveId == null) {
       return open(context);
     } else {
       await context.push(
         GameRoutes.game,
-        extra: GameParams(
-          saveId: saveId,
-        ).toMap(),
+        extra: GameParams(saveId: saveId).toMap(),
       );
     }
   }
 
-  static void openAsPreview(
-    BuildContext context, [
-    String? saveId,
-  ]) async {
+  static void openAsPreview(BuildContext context, [String? saveId]) async {
     await context.push(
       GameRoutes.game,
-      extra: GameParams(
-        isPreview: true,
-        saveId: saveId,
-      ).toMap(),
+      extra: GameParams(isPreview: true, saveId: saveId).toMap(),
     );
   }
 }

@@ -18,26 +18,15 @@ class AboutScreen extends StatelessWidget {
     final textTheme = theme.textTheme;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(),
-        title: Text(t.about),
-      ),
+      appBar: AppBar(leading: const BackButton(), title: Text(t.about)),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: EdgeInsets.only(
-              top: Spacing.x24,
-              bottom: Spacing.x16,
-            ),
+            padding: EdgeInsets.only(top: Spacing.x24, bottom: Spacing.x16),
           ),
-          const Align(
-            alignment: Alignment.center,
-            child: AboutIcon(),
-          ),
-          const SizedBox(
-            height: Spacing.x8,
-          ),
+          const Align(alignment: Alignment.center, child: AboutIcon()),
+          const SizedBox(height: Spacing.x8),
           SizedBox(
             height: Spacing.x32,
             child: Image.asset(
@@ -46,9 +35,7 @@ class AboutScreen extends StatelessWidget {
               color: theme.colorScheme.onSurface,
             ),
           ),
-          const SizedBox(
-            height: Spacing.x16,
-          ),
+          const SizedBox(height: Spacing.x16),
           FutureBuilder(
             future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
@@ -58,7 +45,9 @@ class AboutScreen extends StatelessWidget {
                   t.version_s.replaceAll('%1\$s', data.version),
                   textAlign: TextAlign.center,
                   style: textTheme.titleMedium?.copyWith(
-                    color: theme.colorScheme.onSurface.withOpacity(0.5),
+                    color: theme.colorScheme.onSurface.withAlpha(
+                      _titleAlphaColor,
+                    ),
                   ),
                 );
               } else {
@@ -66,9 +55,7 @@ class AboutScreen extends StatelessWidget {
               }
             },
           ),
-          const SizedBox(
-            height: Spacing.x48,
-          ),
+          const SizedBox(height: Spacing.x48),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: isTablet ? Spacing.x128 : Spacing.x32,
@@ -81,9 +68,7 @@ class AboutScreen extends StatelessWidget {
                   label: t.music_by.replaceAll('%1\$s', 'Tatyana Jacques'),
                   onPressed: () => _launchMusicLink(),
                 ),
-                const SizedBox(
-                  height: Spacing.x8,
-                ),
+                const SizedBox(height: Spacing.x8),
                 GameButton(
                   align: GameButtonAlign.center,
                   label: t.licenses,
@@ -94,9 +79,7 @@ class AboutScreen extends StatelessWidget {
                     );
                   },
                 ),
-                const SizedBox(
-                  height: Spacing.x8,
-                ),
+                const SizedBox(height: Spacing.x8),
                 GameButton(
                   align: GameButtonAlign.center,
                   label: 'GitHub',
@@ -124,6 +107,7 @@ class AboutScreen extends StatelessWidget {
     }
   }
 
+  static final _titleAlphaColor = (255.0 * 0.5) as int;
   static const _githubUrl = 'https://github.com/lucasnlm/antimine-android/';
   static const _videoUrl =
       'https://open.spotify.com/artist/5Z1PXKko20wSH0yFr9HtNr';

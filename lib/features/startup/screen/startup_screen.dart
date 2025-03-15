@@ -22,9 +22,7 @@ class _StartUpScreen extends State<StartUpScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final screenSize = MediaQuery.of(context).size;
-      context.read<StartUpBloc>().initializeGame(
-            screenSize: screenSize,
-          );
+      context.read<StartUpBloc>().initializeGame(screenSize: screenSize);
     });
   }
 
@@ -41,10 +39,7 @@ class _StartUpScreen extends State<StartUpScreen> {
         }
       },
       child: Scaffold(
-        body: Semantics(
-          label: t.loading,
-          child: const SizedBox(),
-        ),
+        body: Semantics(label: t.loading, child: const SizedBox()),
       ),
     );
   }

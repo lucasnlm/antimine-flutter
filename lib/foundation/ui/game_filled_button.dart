@@ -29,9 +29,7 @@ class GameFilledButton extends StatelessWidget {
     final icon = this.icon;
 
     const shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(padding),
-      ),
+      borderRadius: BorderRadius.all(Radius.circular(padding)),
     );
 
     if (icon != null) {
@@ -42,16 +40,13 @@ class GameFilledButton extends StatelessWidget {
           minimumSize: minimumSize,
           visualDensity:
               isDense ? VisualDensity.compact : VisualDensity.standard,
-          alignment: align == GameButtonAlign.start
-              ? Alignment.centerLeft
-              : Alignment.center,
+          alignment:
+              align == GameButtonAlign.start
+                  ? Alignment.centerLeft
+                  : Alignment.center,
         ),
         onPressed: onPressed,
-        icon: Icon(
-          icon,
-          color: colorScheme.onPrimary,
-          size: Spacing.x18,
-        ),
+        icon: Icon(icon, color: colorScheme.onPrimary, size: Spacing.x18),
         label: Text(
           label.toUpperCase(),
           style: theme.textTheme.labelMedium?.copyWith(
@@ -68,9 +63,10 @@ class GameFilledButton extends StatelessWidget {
           minimumSize: minimumSize,
           visualDensity:
               isDense ? VisualDensity.compact : VisualDensity.standard,
-          alignment: align == GameButtonAlign.start
-              ? Alignment.centerLeft
-              : Alignment.center,
+          alignment:
+              align == GameButtonAlign.start
+                  ? Alignment.centerLeft
+                  : Alignment.center,
         ),
         onPressed: onPressed,
         child: Text(

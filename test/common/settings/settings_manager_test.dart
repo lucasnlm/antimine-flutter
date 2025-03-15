@@ -5,9 +5,7 @@ import '../../helpers/mocks/test_settings_repository.dart';
 
 void main() {
   final settingsRepository = TestSettingsRepository();
-  final settingsManager = SettingsManager(
-    repository: settingsRepository,
-  );
+  final settingsManager = SettingsManager(repository: settingsRepository);
 
   test('init', () async {
     // When

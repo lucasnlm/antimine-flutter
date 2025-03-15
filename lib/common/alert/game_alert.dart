@@ -27,9 +27,10 @@ void showGameAlert({
             CupertinoDialogAction(
               isDefaultAction: isDefaultAction,
               isDestructiveAction: isDestructiveAction,
-              onPressed: onPrimary != null
-                  ? () => onPrimary(context)
-                  : () => Navigator.of(context).pop(),
+              onPressed:
+                  onPrimary != null
+                      ? () => onPrimary(context)
+                      : () => Navigator.of(context).pop(),
               child: Text(primaryAction),
             ),
           ],
@@ -40,18 +41,20 @@ void showGameAlert({
     showDialog<String>(
       context: context,
       barrierDismissible: barrierDismissible,
-      builder: (BuildContext context) => AlertDialog(
-        title: title != null ? Text(title) : null,
-        content: Text(content),
-        actions: [
-          TextButton(
-            onPressed: onPrimary != null
-                ? () => onPrimary(context)
-                : () => Navigator.of(context).pop(),
-            child: Text(primaryAction),
+      builder:
+          (BuildContext context) => AlertDialog(
+            title: title != null ? Text(title) : null,
+            content: Text(content),
+            actions: [
+              TextButton(
+                onPressed:
+                    onPrimary != null
+                        ? () => onPrimary(context)
+                        : () => Navigator.of(context).pop(),
+                child: Text(primaryAction),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

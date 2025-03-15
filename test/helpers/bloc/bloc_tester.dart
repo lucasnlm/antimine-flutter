@@ -21,9 +21,6 @@ void blocTest<B extends Cubit<S>, S>(
     await Future.delayed(Duration.zero);
     final emittedToCompare = emittedStates.skip(skip).toList();
     final result = validation(emittedToCompare);
-    expect(
-      result.every((e) => e == true),
-      isTrue,
-    );
+    expect(result.every((e) => e == true), isTrue);
   });
 }

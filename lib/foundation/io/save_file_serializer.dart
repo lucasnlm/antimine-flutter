@@ -13,10 +13,7 @@ import 'file_byte_writer.dart';
 class SaveFileSerializer {
   /// Reads a save game from a byte list.
   /// Return null if the save game is invalid.
-  static SaveGame? fromUint8List(
-    String? id,
-    Uint8List bytes,
-  ) {
+  static SaveGame? fromUint8List(String? id, Uint8List bytes) {
     try {
       FileByteReader reader = FileByteReader(bytes);
 
@@ -35,27 +32,24 @@ class SaveFileSerializer {
       );
 
       final areaSize = reader.readInt();
-      final areaList = List<Area>.generate(
-        areaSize,
-        (index) {
-          return Area(
-            id: reader.readInt(),
-            x: reader.readInt(),
-            y: reader.readInt(),
-            minesAround: reader.readInt(),
-            hasMine: reader.readBool(),
-            ignoreError: reader.readBool(),
-            covered: reader.readBool(),
-            mark: Mark.fromId(reader.readInt()),
-            revealed: reader.readBool(),
-            neighboursList: List<int>.generate(
-              reader.readInt(),
-              (index) => reader.readInt(),
-            ),
-            dimNumber: reader.readBool(),
-          );
-        },
-      );
+      final areaList = List<Area>.generate(areaSize, (index) {
+        return Area(
+          id: reader.readInt(),
+          x: reader.readInt(),
+          y: reader.readInt(),
+          minesAround: reader.readInt(),
+          hasMine: reader.readBool(),
+          ignoreError: reader.readBool(),
+          covered: reader.readBool(),
+          mark: Mark.fromId(reader.readInt()),
+          revealed: reader.readBool(),
+          neighboursList: List<int>.generate(
+            reader.readInt(),
+            (index) => reader.readInt(),
+          ),
+          dimNumber: reader.readBool(),
+        );
+      });
 
       return SaveGame(
         id: id,

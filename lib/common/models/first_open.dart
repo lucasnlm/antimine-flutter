@@ -5,9 +5,7 @@ import 'package:equatable/equatable.dart';
 class FirstOpen extends Equatable {
   final int? initialId;
 
-  FirstOpen({
-    required int initialId,
-  }) : initialId = max(-1, initialId);
+  FirstOpen({required int initialId}) : initialId = max(-1, initialId);
 
   /// Is true before the first step or before this value be recorded.
   bool get isUnknown => initialId == null || initialId! < 0;
@@ -19,13 +17,9 @@ class FirstOpen extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object?> get props => [
-        initialId,
-      ];
+  List<Object?> get props => [initialId];
 
-  static final unknown = FirstOpen(
-    initialId: unknownId,
-  );
+  static final unknown = FirstOpen(initialId: unknownId);
 
   static const unknownId = -1;
 }

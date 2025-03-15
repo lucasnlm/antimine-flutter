@@ -39,11 +39,7 @@ class SkinBox extends StatelessWidget {
               gameTheme: gameTheme,
               tint: skin.canTint,
             ),
-            if (selected)
-              Icon(
-                Icons.check,
-                color: onColor,
-              ),
+            if (selected) Icon(Icons.check, color: onColor),
           ],
         ),
       ),
