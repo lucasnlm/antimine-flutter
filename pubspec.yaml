@@ -1,0 +1,112 @@
+name: antimine
+description: Antimine is a minesweeper-like puzzle game.
+publish_to: 'none'
+
+version: 18.0.11+5
+
+environment:
+  sdk: '>=3.7.0 <4.0.0'
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  windows:
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  creator:
+      path: ./packages/creator
+  flame: ^1.26.0
+  flame_bloc: ^1.12.8
+  flame_audio: ^2.11.1
+  equatable: ^2.0.7
+  flutter_bloc: ^9.1.0
+  confetti: ^0.8.0
+  path_provider: ^2.1.5
+  uuid: ^4.5.1
+  provider: ^6.1.2
+  go_router: ^14.8.1
+  shared_preferences: ^2.5.2
+  share_plus: ^10.1.4
+  vibration: ^3.1.3
+  package_info_plus: ^8.3.0
+  url_launcher: ^6.3.1
+  in_app_update: ^4.2.3
+  in_app_review: ^2.0.10
+  wakelock_plus: ^1.2.10
+  slang: ^4.5.0
+  slang_flutter: ^4.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mocktail: ^1.0.4
+  meta: ^1.10.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: false
+  ios: true
+  image_path: "assets/icon.png"
+  windows:
+    generate: true
+    image_path: "assets/icon.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "assets/icon.png"
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - ./assets/icon.png
+    - ./assets/title.png
+    - ./assets/title-only.png
+    - ./assets/images/classic.png
+    - ./assets/images/classic-preview.png
+    - ./assets/images/glass.png
+    - ./assets/images/glass-preview.png
+    - ./assets/images/oldschool.png
+    - ./assets/images/oldschool2.png
+    - ./assets/images/square.png
+    - ./assets/images/square-preview.png
+    - ./assets/images/square-2.png
+    - ./assets/images/square-2-preview.png
+    - ./assets/images/standard.png
+    - ./assets/images/standard-preview.png
+    - ./assets/images/stone.png
+    - ./assets/images/stone-preview.png
+    - ./assets/images/grass.png
+    - ./assets/images/grass-preview.png
+    - ./assets/tutorial/tutorial_1.png
+    - ./assets/tutorial/tutorial_2.png
+    - ./assets/tutorial/tutorial_3.png
+    - ./assets/icons/mine.png
+    - ./assets/audio/bomb_explosion.mp3
+    - ./assets/audio/menu_click.mp3
+    - ./assets/audio/menu_click_alt.mp3
+    - ./assets/audio/menu_click_alt_2.mp3
+    - ./assets/audio/music.mp3
+    - ./assets/audio/open_area_0.mp3
+    - ./assets/audio/open_area_1.mp3
+    - ./assets/audio/open_area_2.mp3
+    - ./assets/audio/open_area_3.mp3
+    - ./assets/audio/open_multiple_0.mp3
+    - ./assets/audio/open_multiple_1.mp3
+    - ./assets/audio/open_multiple_2.mp3
+    - ./assets/audio/put_flag_0.mp3
+    - ./assets/audio/put_flag_1.mp3
+    - ./assets/audio/put_flag_2.mp3
+    - ./assets/audio/reveal_mine_0.mp3
+    - ./assets/audio/reveal_mine_1.mp3
+    - ./assets/audio/reveal_mine_2.mp3
+    - ./assets/audio/reveal_mine_reload.mp3
+    - ./assets/audio/win.mp3
+    - ./assets/saves/preview.save

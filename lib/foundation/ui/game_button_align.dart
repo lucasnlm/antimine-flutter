@@ -1,0 +1,1 @@
+enum GameButtonAlign { start, center }
